@@ -1,116 +1,71 @@
-:root {
-  --bg: #171821;
-  --text: #F8F8F2;
-  --border: #F8F8F2;
-  --content: #24252F;
-}
-
-[data-theme='light'] {
-  --bg: #F8F8F2;
-  --text: #000000;
-  --border: #000000;
-  --content: #F8F8F2;
-}
-
-.layout-root {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  min-height: 100vh;
-  background-color: var(--bg);
-  transition: background-color 0.2s ease;
-}
-
-/* Content position */
 .content-wrapper {
-  width: 100%;
-  max-width: 840px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 30px;
+    width: 100%;
+    max-width: 840px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
 }
 
 .navbar-container {
-  position: relative;
-  display: flex;
-  gap: 12px;
-  height: 55px;
-  width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+    display: flex;
+    gap: 12px;
+    height: 55px;
+    width: 100%;
 }
 
 /* Dotted line */
 .navbar-container::before {
-  content: "";
-  position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 80px;
-  border-left: 3px dotted var(--border);
+    content: "";
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 80px;
+    border-left: 3px dotted var(--border);
 }
 
 .nav-links-wrapper {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  background-color: var(--bg);
-  border: 3px solid var(--border);
-  padding: 0 24px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: var(--bg);
+    border: 3px solid var(--border);
+    padding: 0 24px;
 }
 
 .nav-links {
-  display: flex;
-  gap: 32px;
+    display: flex;
+    gap: 32px;
 }
 
 .nav-item {
-  text-decoration: none;
-  font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
 }
 
 .theme-toggle {
-  width: 80px;
-  height: 55px;
-  background-color: var(--bg);
-  border: 3px solid var(--border);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  padding: 0;
-  color: var(--text);
+    width: 80px;
+    height: 55px;
+    background-color: var(--bg);
+    border: 3px solid var(--border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text);
 }
 
 .icon-sun-moon svg {
-  width: 24px;
-  height: 24px;
-  stroke: currentColor;
-}
-
-.profile-section {
-  margin-top: 40px;
-  width: 100%;
-  border: 3px solid var(--border);
-  display: flex;
-  min-height: 315px;
-}
-
-.img-container img {
-  width: 315px;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-right: 3px solid var(--border);
-}
-
-.profile-details {
-  flex: 1;
-  background-color: var(--content);
-  color: var(--text);  
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
 }

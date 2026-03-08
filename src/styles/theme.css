@@ -1,0 +1,22 @@
+:root {
+    --bg: #171821;
+    --text: #F8F8F2;
+    --border: #F8F8F2;
+}
+
+[data-theme='light'] {
+    --bg: #F8F8F2;
+    --text: #000000;
+    --border: #000000;
+}
+
+.layout-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg);
+    color: var(--text); 
+    transition: background-color 0.2s ease, color 0.2s ease;
+}

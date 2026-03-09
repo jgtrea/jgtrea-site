@@ -1,7 +1,8 @@
+/* Profile content */
 .profile-section {
     margin-top: 40px;
     width: 100%;
-    border: 3px solid var(--border);
+    border: 2px solid var(--border);
     display: flex;
     min-height: 280px;
     background-color: var(--bg);
@@ -17,7 +18,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    border-right: 3px solid var(--border);
+    border-right: 2px solid var(--border);
 }
 
 .profile-details {
@@ -26,7 +27,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: var(--bg);
+    background-color: var(--bg-content);
     color: var(--text);
 }
 
@@ -48,7 +49,7 @@
     width: 18px;
     height: 18px;
     stroke: currentColor;
-    stroke-width: 3px;
+    stroke-width: 2px;
     fill: none;
 }
 
@@ -104,7 +105,7 @@
 .sq-btn, .rect-btn {
     text-decoration: none;
     background-color: var(--bg);
-    border: 3px solid var(--border);
+    border: 2px solid var(--border);
     color: var(--text);
     display: flex;
     align-items: center;
@@ -138,5 +139,57 @@
     width: 16px;
     height: 16px;
     stroke: currentColor;
-    stroke-width: 3px;
+    stroke-width: 2px;
 }
+
+/* Background content */
+.background-section {
+    z-index: 0;
+    margin-top: 40px;
+    width: 100%;
+    border: 2px solid var(--border);
+    min-height: 350px;
+    background-color: var(--bg);
+}
+
+.background-content-tabs{
+    z-index: 2;
+    margin-top: 10px;
+    margin-left: 25px;
+    height: 100%;
+    width: 20%;
+    min-height: 40px;    
+    border: 2px solid var(--border);
+    border-bottom: none;
+    border-radius: 7px 7px 0px 0px;
+    background-color: var(--bg-content);
+    display: flex;    
+    align-items: center;
+    padding-left: 10px;
+
+    position: relative;
+    margin-bottom: -2px;
+}
+
+.background-content-tabs::after {
+    content: "";
+    position: absolute;
+    bottom: -1.5px;
+    left: 0;
+    width: 100%;
+    height: 3px; 
+    background-color: var(--bg-content);
+    z-index: 3;
+}
+
+.background-content-seperator{
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    min-height: 30px;
+    border-top: 2px solid var(--border);
+    border-bottom: 2px solid var(--border);
+    background-color: var(--bg-content);
+    display: flex;    
+}
+

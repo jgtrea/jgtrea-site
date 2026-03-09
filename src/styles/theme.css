@@ -1,11 +1,13 @@
 :root {
     --bg: #171821;
+    --bg-content: #24252F;
     --text: #F8F8F2;
     --border: #F8F8F2;
 }
 
 [data-theme='light'] {
     --bg: #F8F8F2;
+    --bg-content: #F8F8F2;
     --text: #000000;
     --border: #000000;
 }

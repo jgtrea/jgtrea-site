@@ -9,12 +9,12 @@ import Resume from '@/assets/lucide/resume.tsx';
 
 const Home = () => {
   return (
-    <div className="profile-section">
+    <div className="profile-section" id="home">
       <div className="img-container">
         <img src="../src/assets/profile-1.png" alt="Profile" />
       </div>
       
-      <div className="profile-details" id="#home">
+      <div className="profile-details">
         <div className="top-right-icon">
           <Quotes />
         </div>

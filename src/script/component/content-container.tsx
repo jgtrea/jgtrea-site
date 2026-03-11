@@ -13,8 +13,8 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
     <nav className="navbar-container">
       <div className="nav-links-wrapper">
         <div className="nav-links">
-          <a href="home.tsx" className="nav-item">Home</a>
-          <a href="education.tsx" className="nav-item">Education</a>
+          <a href="#" className="nav-item">Home</a>
+          <a href="#education" className="nav-item">Education</a>
           <a href="#projects" className="nav-item">Projects</a>
           <a href="#contact" className="nav-item">Contact</a>
         </div>
@@ -43,7 +43,6 @@ const Layout = () => {
     <main className="layout-root">      
       <div className="content-wrapper">        
         <Navbar theme={theme} toggleTheme={toggleTheme} />
-
         <Home />    
         <Education />    
 

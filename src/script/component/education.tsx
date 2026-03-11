@@ -2,7 +2,7 @@ import { Tabs } from "@mantine/core";
 
 const Education = () => {
   return (
-    <Tabs defaultValue="education" variant="unstyled" className="background-section">
+    <Tabs defaultValue="education" variant="unstyled" className="background-section" id="education">
       <Tabs.List>
         <Tabs.Tab value="education" className="tab">
           <a className="tab-item">Education</a>

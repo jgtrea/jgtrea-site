@@ -1,4 +1,6 @@
 import { Tabs } from "@mantine/core";
+import Schools from "./education/schools";
+import Certifs from "./education/certifs";
 
 const Education = () => {
   return (
@@ -16,34 +18,11 @@ const Education = () => {
       </div>
 
       <Tabs.Panel value="education" className="education-content">        
-        <div className="edu-content">
-          <span className="dot"></span>
-          <h1><b><i>Bachelor Degree of Information Technology</i></b></h1>
-          <p>Mapua Malayan Colleges of Laguna (July 2022 - 2026)</p>
-          <ul>            
-            <li>Maintained Dean’s Lister status for three consecutive academic years.</li>
-            <li>Passed Data Structure and Algorithms.</li>
-          </ul>
-        </div> 
-               
-        <div className="edu-content">
-          <span className="dot"></span>
-          <h1><b><i>JHS & SHS Graduate</i></b></h1>
-          <p>Mater Ecclesiae School, San Pedro, Laguna (2018 - 2022)</p>
-          <ul>            
-            <li>CREOTEC Work Immersion Participant</li>
-          </ul>
-        </div>
-
-        <div className="edu-content">
-          <span className="dot"></span>
-          <h1><b><i>Grade 7 Graduate</i></b></h1>
-          <p>St. Odilard School, Imus Cavite (2016 - 2017)</p>
-        </div>
+        <Schools />
       </Tabs.Panel>
 
-      <Tabs.Panel value="certificates">
-        certificates
+      <Tabs.Panel value="certificates" className="education-content">
+        <Certifs />
       </Tabs.Panel>
 
     </Tabs> 

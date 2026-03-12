@@ -4,7 +4,7 @@
     margin-top: 40px;
     width: 100%;
     border: 2px solid var(--border);
-    min-height: 350px;
+    min-height: 100%;
     background-color: var(--bg);
 }
 
@@ -124,7 +124,7 @@
     background-color: var(--border);
     border-radius: 50%;
     
-    top: 22%;
+    top: 23%;
     position: absolute; 
     left: 0; 
     transform: translateX(calc(-50% + 1px)); 

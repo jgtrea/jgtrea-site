@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Home from './home.tsx';
 import Education from './education.tsx';
+import Project from './project.tsx';
 import '../../styles/navbar.css';
 import '../../styles/content.css';
 import '../../styles/education.css';
+import '../../styles/project.css';
 import '../../styles/theme.css';
 import Moon from '../../assets/lucide/moon.tsx';
 import Sunn from '../../assets/lucide/sun.tsx';
@@ -44,8 +46,8 @@ const Layout = () => {
       <div className="content-wrapper">        
         <Navbar theme={theme} toggleTheme={toggleTheme} />
         <Home />    
-        <Education />    
-
+        <span id="education"><Education /></span>    
+        <span id="projects"><Project /></span>
       </div>
     </main>
   );

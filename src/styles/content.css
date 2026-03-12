@@ -2,6 +2,14 @@ html {
     scroll-behavior: smooth;
 }
 
+span {
+    width: 100%;
+}
+
+#education, #projects, #contact {
+    scroll-margin-top: 20vh;
+}
+
 /* Profile content */
 .profile-section {
     margin-top: 40px;

@@ -4,7 +4,7 @@ import Certifs from "./education/certifs";
 
 const Education = () => {
   return (
-    <Tabs defaultValue="education" variant="unstyled" className="background-section" id="education">
+    <Tabs defaultValue="education" variant="unstyled" className="background-section">
       <Tabs.List>
         <Tabs.Tab value="education" className="tab">
           <a className="tab-item">Education</a>

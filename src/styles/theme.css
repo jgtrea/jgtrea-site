@@ -1,6 +1,6 @@
 :root {
-    --bg: #000000;
-    --bg-content: #000000;
+    --bg: #09090b;
+    --bg-content: #09090b;
     --text: #F8F8F2;
     --border: #F8F8F2;
 }
@@ -8,8 +8,8 @@
 [data-theme='light'] {
     --bg: #F8F8F2;
     --bg-content: #F8F8F2;
-    --text: #000000;
-    --border: #000000;
+    --text: #09090b;
+    --border: #09090b;
 }
 
 .layout-root {

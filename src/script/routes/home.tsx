@@ -5,6 +5,7 @@ import Email from '@/assets/lucide/email.tsx';
 import Gith from '@/assets/lucide/github.tsx';
 import Linkin from '@/assets/lucide/linkedin.tsx';
 import Resume from '@/assets/lucide/resume.tsx';
+import profileImage from '@/assets/profile-image-picture.JPG';
 
 
 const Home = () => {
@@ -15,7 +16,7 @@ const Home = () => {
         <div className="top-row">
           <div className="user-info">
             <div className="img-container">
-              <img src="../../assets/profile-image-picture.JPG" alt="Profile" />
+              <img src={profileImage} alt="Profile" />
             </div>
             <div className="user-text">
               <p className="intro-text"><b>Jan Gabriel Rea</b></p>

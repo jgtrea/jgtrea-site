@@ -15,7 +15,7 @@ const Home = () => {
         <div className="top-row">
           <div className="user-info">
             <div className="img-container">
-              <img src="../../assets/jan.JPG" alt="Profile" />
+              <img src="../../assets/profile-image-picture.JPG" alt="Profile" />
             </div>
             <div className="user-text">
               <p className="intro-text"><b>Jan Gabriel Rea</b></p>

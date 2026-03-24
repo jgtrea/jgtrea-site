@@ -30,11 +30,6 @@ const Project = () => {
                             </a>    
                         </div>                     
                     </div>
-                    <div className="project-display-stack">
-                        <a className="stack-btn">python</a>
-                        <a className="stack-btn">html</a>
-                        <a className="stack-btn">javascript</a>
-                    </div>
                 </div>
 
                 <div className="project-display">
@@ -52,11 +47,6 @@ const Project = () => {
                                 <Gith />source
                             </a>
                         </div>
-                    </div>
-                    <div className="project-display-stack">
-                        <a className="stack-btn">python</a>
-                        <a className="stack-btn">html</a>
-                        <a className="stack-btn">javascript</a>
                     </div>
                 </div>
             </div>              

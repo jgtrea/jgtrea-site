@@ -14,7 +14,6 @@ import Email from '@/assets/lucide/email.tsx';
 import Gith from '@/assets/lucide/github.tsx';
 import Linkin from '@/assets/lucide/linkedin.tsx';
 import Copyr from '../../assets/lucide/copyr.tsx';
-import TopArrow from '@/assets/lucide/top-arrow.tsx';
 
 const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, toggleTheme }) => {
   return (
@@ -38,11 +37,7 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
 
 const FooterBar = () => {
   return (
-    <div className="footer-wrapper">
-      <div className="footer-top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-        <TopArrow /> Back to Top
-      </div>
-      
+    <div className="footer-wrapper">      
       <footer className="footer-container">
         <div className="footer-left">
           <Copyr /> 2026 Jan Gabriel Rea

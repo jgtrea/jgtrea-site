@@ -1,35 +1,29 @@
-.content-wrapper {
-    width: 100%;
-    max-width: 840px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 60px;
-}
-
 .navbar-container {
     position: fixed;
     top: 0;
     left: 50%;
-    transform: translateX(-50%); /* keeps it centered */
-
+    transform: translateX(-50%);
     z-index: 1000;
 
     display: flex;
-    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    
     width: 100%;
     max-width: 840px;
+    height: 80px;
+    padding: 0 24px;
+
+    background: linear-gradient(
+        to bottom, 
+        var(--bg) 0%, 
+        rgba(0, 0, 0, 0) 100%
+    );
 }
 
 .nav-links-wrapper {
-    flex: 1;
     display: flex;
     align-items: center;
-    background-color: var(--bg);
-    border-bottom: 2px solid var(--border);
-    border-left: 2px solid var(--border);
-    border-right: 2px solid var(--border);
-    padding: 0 24px;
 }
 
 .nav-links {
@@ -40,25 +34,27 @@
 .nav-item {
     text-decoration: none;
     font-family: 'Inter', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     color: var(--text);
+    transition: opacity 0.3s ease;
+}
+
+.nav-item:hover {
+    opacity: 1;
 }
 
 .theme-toggle {
-    width: 80px;
-    height: 55px;
-    background-color: var(--bg);
-    border-bottom: 2px solid var(--border);
-    border-left: 2px solid var(--border);
-    border-right: 2px solid var(--border);
+    background: none;
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     color: var(--text);
+    padding: 8px;
 }
 
 .icon-sun-moon svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
 }

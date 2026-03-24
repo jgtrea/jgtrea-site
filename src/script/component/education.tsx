@@ -14,9 +14,6 @@ const Education = () => {
         </Tabs.Tab>
       </Tabs.List>
 
-      <div className="tab-seperator">
-      </div>
-
       <Tabs.Panel value="education" className="education-content">        
         <Schools />
       </Tabs.Panel>

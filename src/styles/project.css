@@ -18,7 +18,8 @@
 .src-btn {
     text-decoration: none;
     background-color: var(--bg);
-    border: 2px solid var(--border);
+    border: 1px solid #333333;
+    border-radius: 4px;
     color: var(--text);
     display: inline-flex;
     align-items: center;
@@ -68,7 +69,9 @@
 .project-display {
     z-index: 0;    
     width: 100%;
-    border: 2px solid var(--border);
+    border: 1px solid #333333;
+    border-radius: 12px;
+    overflow: hidden;
     min-height: 250px;
     background-color: var(--bg);
 }
@@ -90,56 +93,13 @@
     padding-inline: 2%;
     z-index: 0;
     width: 100%;
-    border-top: 2px solid var(--border);
+    border-top: 1px solid #333333;
     min-height: 250px;
     background-color: var(--bg-content);
-}
-
-.project-display-stack {    
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3px;
-    z-index: 0;
-    width: 100%;
-    border-top: 2px solid var(--border);
-    height: 25%;    
-    background-color: var(--bg-content);
-    padding-inline: 2%;        
-    padding: 8px;         
-    padding-bottom: 7%;
 }
 
 .stack-btn {    
     text-decoration: none;
     background-color: var(--bg);
-    border: 1px solid var(--border);
-    color: var(--text);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.1s ease;
-    width: fit-content;    
-    padding: 4px 10px;
-    height: 24px;
-    min-width: 12%;
-    gap: 8px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 550;
-    font-size: 9px;
-}
-
-.stack-btn p {
-    margin: 0;
-    padding: 0;
-    line-height: 1;
-}
-
-.stack-btn svg {    
-    width: 14px;
-    height: 14px;
-    display: flex;
-    stroke: currentColor;
-    stroke-width: 2px;
-    flex-shrink: 0;
-    transform: translateY(1px);
+    border: 1px solid
 }

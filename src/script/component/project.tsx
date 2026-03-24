@@ -3,7 +3,7 @@ import Website from "@/assets/lucide/website";
 import Gith from '@/assets/lucide/github';
 
 const Project = () => {
-    return (
+    return (        
         <div className="project-container">
             <div className="project-titlebar">
                 <span className="intro-text"><b>My Projects</b></span>

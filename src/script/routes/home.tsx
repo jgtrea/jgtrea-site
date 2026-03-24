@@ -6,6 +6,7 @@ import Gith from '@/assets/lucide/github.tsx';
 import Linkin from '@/assets/lucide/linkedin.tsx';
 import Resume from '@/assets/lucide/resume.tsx';
 
+
 const Home = () => {
   return (
     <div className="profile-section" id="home">
@@ -14,7 +15,7 @@ const Home = () => {
         <div className="top-row">
           <div className="user-info">
             <div className="img-container">
-              <img src="../src/assets/jan.JPG" alt="Profile" />
+              <img src="../../assets/jan.JPG" alt="Profile" />
             </div>
             <div className="user-text">
               <p className="intro-text"><b>Jan Gabriel Rea</b></p>

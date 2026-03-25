@@ -41,7 +41,6 @@
     background-color: var(--bg);
 }
 
-/* Remove the ::after since the tabs are now floating buttons */
 .tab[data-active]::after {
     display: none;
 }

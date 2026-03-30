@@ -9,14 +9,20 @@ export interface BadgesData {
 export const BadgesData: BadgesData[] = [
     {
         id: 1,
-        title: "Ethical Hacker",
-        issuer: "Cisco",
-        date: "3/2025"
-    },    
+        title: "Google Cloud Computing",
+        issuer: "Google Cloud Skills Boost",
+        date: "02/2024"
+    },   
     {
         id: 2,
-        title: "CCNA: Introduction to Networks",
-        issuer: "Cisco",
-        date: "9/2025"
+        title: "Certified Ethical Hacker (CEH)",
+        issuer: "Cisco Networking Academy",
+        date: "03/2025"
+    },    
+    {
+        id: 3,
+        title: "Cisco Certified Network Associate Routing and Switching (CCNA)",
+        issuer: "Cisco Networking Academy",
+        date: "09/2025"
     },
 ];

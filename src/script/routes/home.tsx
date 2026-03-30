@@ -42,7 +42,7 @@ const Home = () => {
             
             <a href={resumeUrl} target="_blank" className="rect-btn">
               <Resume />
-              <span className='button-text'>resume</span>
+              <span className='button-text'>CV</span>
             </a>
           </div>
         </div>

@@ -24,4 +24,4 @@ export const socials: Social[] = [
 
 export const footerText = 'Jan Gabriel Rea';
 
-export const resumeUrl = '/src/assets/Jan-Gabriel-Rea_CV.pdf';
+export const resumeUrl = '/Jan-Gabriel-Rea_CV.pdf';

@@ -1,0 +1,162 @@
+.mantine-Tabs-list {
+    display: flex;
+    gap: 8px;
+    border: none;
+    margin-bottom: 12px;
+}
+
+.tab {        
+    transition: all 0.2s ease;
+    height: 32px;
+    width: auto;
+    padding: 0 12px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+[data-theme='light'] .tab {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.tab:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='light'] .tab:hover {
+    background-color: rgba(199, 199, 199, 0.1);
+}
+
+.tab[data-active] {
+    opacity: 1;
+    background-color: #1a1a1a;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+[data-theme='light'] .tab[data-active] {
+    background-color: var(--bg);
+}
+
+.tab[data-active]::after {
+    display: none;
+}
+
+.tab-item {
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.background-section {
+    z-index: 0;
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    background-color: var(--bg-content);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 24px;
+}
+
+.education-content {
+    color: var(--text);
+}
+
+.mantine-Timeline-root {
+    --timeline-line-color: var(--border) !important;
+}
+
+.timeline-item-custom,
+.timeline-content-custom,
+.timeline-body-custom {
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.mantine-Timeline-itemContent {
+    border: none !important;
+    outline: none !important;
+    padding-top: 0 !important;
+}
+
+.mantine-Timeline-itemBullet {
+    background-color: var(--text) !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.mantine-Timeline-root .mantine-Timeline-itemBullet svg,
+.timeline-icon {
+    color: var(--bg) !important;
+    stroke: var(--bg) !important;
+}
+
+.mantine-Timeline-itemTitle {
+    color: var(--text) !important;
+    font-weight: 600;
+}
+
+.mantine-Timeline-root .mantine-Timeline-item::before {
+    border-color: var(--border) !important;
+    border-left-width: 2px !important;
+}
+
+.mantine-Timeline-root,
+.mantine-Timeline-root * {
+    color: var(--text) !important;
+}
+
+[data-theme='light'] .mantine-Timeline-root .mantine-Timeline-item::before {
+    border-color: var(--border) !important;
+}
+
+.timeline-title,
+.timeline-issuer {
+    color: var(--text) !important;
+}
+
+.timeline-year,
+.timeline-date,
+.timeline-empty {
+    color: var(--text) !important;
+    opacity: 0.6;
+}
+
+.timeline-list {
+    list-style-type: disc !important;
+    border: none !important;
+    border-left: none !important;
+}
+
+.timeline-list li,
+.mantine-List-item {
+    display: list-item !important;
+    color: var(--text) !important;
+}
+
+.timeline-list li::marker,
+.mantine-List-item::marker {
+    color: var(--text) !important;
+}
+
+.mantine-List-root {
+    border: none !important;
+    border-left: none !important;
+}
+
+.mantine-List-itemWrapper {
+    display: inline !important;
+}
+
+.mantine-Tabs-panel {
+    border: none !important;
+    box-shadow: none !important;
+}

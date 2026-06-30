@@ -2,6 +2,7 @@ import { Tabs } from "@mantine/core";
 import Schools from "./education/schools";
 import Certifs from "./education/certifs";
 import Badges from "./education/badges";
+import Associations from "./education/associations";
 
 
 const Education = () => {
@@ -10,6 +11,9 @@ const Education = () => {
       <Tabs.List className="mantine-Tabs-list">
         <Tabs.Tab value="education" className="tab">
           <span className="tab-item">Education</span>
+        </Tabs.Tab>
+        <Tabs.Tab value="associations" className="tab">
+          <span className="tab-item">Associations</span>
         </Tabs.Tab>
         <Tabs.Tab value="certificates" className="tab">
           <span className="tab-item">Certificates</span>
@@ -23,6 +27,12 @@ const Education = () => {
         <Tabs.Panel value="education" className="education-content">
           <div className="edu-content">
             <Schools />
+          </div>
+        </Tabs.Panel>        
+
+        <Tabs.Panel value="associations" className="education-content">
+          <div className="edu-content">
+            <Associations />
           </div>
         </Tabs.Panel>
 

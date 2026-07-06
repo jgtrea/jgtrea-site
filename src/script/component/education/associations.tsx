@@ -1,5 +1,5 @@
 import { Timeline, Text, List, Group } from "@mantine/core";
-import { GraduationCap } from 'lucide-react';
+import { Building2 } from 'lucide-react';
 import { AssociationsData } from "../data/associations-data";
 
     const Associations = () => {
@@ -17,7 +17,7 @@ import { AssociationsData } from "../data/associations-data";
                 }}
             >
                 {reversedAssociationsData.map((association) => (
-                    <Timeline.Item key={association.id} bullet={<GraduationCap size={14} />} title={association.title}>
+                    <Timeline.Item key={association.id} bullet={<Building2 size={14} />} title={association.title}>
                         <Group gap="xs" align="center">
                             <Text size="sm">{association.issuer}</Text>
                             <Text size="sm"> -  {association.date}</Text>

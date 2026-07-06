@@ -21,7 +21,7 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
       <div className="nav-links-wrapper">
         <div className="nav-links">
           <Link to="/" className="nav-item">Home</Link>
-          <Link to="/projects" className="nav-item">Projects</Link>
+          <Link to="/projects" className="nav-item">Projects</Link>          
         </div>
       </div>
       <button className="theme-toggle" onClick={toggleTheme}>

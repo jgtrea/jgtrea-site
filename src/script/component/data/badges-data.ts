@@ -11,12 +11,12 @@ export const BadgesData: BadgesData[] = [
         id: 1,
         title: "Ethical Hacker",
         issuer: "Cisco",
-        date: "3/2025"
+        date: "2025/03"
     },    
     {
         id: 2,
         title: "CCNA: Introduction to Networks",
         issuer: "Cisco",
-        date: "9/2025"
+        date: "2025/09"
     },
 ];

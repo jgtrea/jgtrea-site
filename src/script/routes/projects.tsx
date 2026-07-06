@@ -10,7 +10,7 @@ const Projects = () => {
         <div className="project-container">
             <Reveal>
                 <div className="project-titlebar">
-                    <span className="intro-text"><b>My Projects</b></span>
+                    <span className="intro-text"><b>My Projects.</b></span>
                 </div>
             </Reveal>
 

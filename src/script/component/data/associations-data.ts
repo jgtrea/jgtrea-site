@@ -11,6 +11,6 @@ export const AssociationsData: AssociationsData[] = [
         id: 1,
         title: "CyberSocPH",
         issuer: "Dr. Elizalde Javier Duran ",
-        date: "6/2026"
+        date: "2026/06"
     }    
 ];

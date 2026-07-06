@@ -4,6 +4,8 @@ import Moon from '../assets/lucide/moon.tsx';
 import Sunn from '../assets/lucide/sun.tsx';
 import Home from './routes/home.tsx';
 import Projects from './routes/projects.tsx';
+import Blog from './routes/blog.tsx';
+import BlogPost from './routes/blog-post.tsx';
 import Education from './component/education.tsx';
 import Project from './component/project.tsx';
 import FooterBar from './routes/footer.tsx';
@@ -64,6 +66,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<main className="layout-root"><div className="content-wrapper"><Projects /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
+        <Route path="/blog" element={<main className="layout-root"><div className="content-wrapper"><Blog /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
+        <Route path="/blog/:id" element={<main className="layout-root"><div className="content-wrapper"><BlogPost /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
       </Routes>
     </>
   );

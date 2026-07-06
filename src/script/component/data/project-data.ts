@@ -1,8 +1,20 @@
-export const ProjectData = [
+export interface ProjectItem {
+  id: number;
+  title: string;
+  description: string;
+  image?: string;
+  imagePosition?: string;
+  url?: string;
+  github?: string;
+  stack?: string[];
+}
+
+export const ProjectData: ProjectItem[] = [
   {
     id: 1,
     image: "/assets/project-images/icyheights.png",
-    title: "Icy Heights",    
+    imagePosition: "bottom center",
+    title: "Icy Heights",
     description: "A simple game that has a penguin with a jetpack fly through hoops.",    
     github: "https://github.com/SuperficialFlow/IcyHeights",
     stack: ["C#"]
@@ -25,13 +37,20 @@ export const ProjectData = [
     stack: ["ASP.NET", "C#", "CSS", "JavaScript"]
   },
   {
-    id: 5,
+    id: 5 ,
+    title: "Rubik-s-Cube-Cipher",
+    description: "Multi-block permutation cipher that combines the combinatorial state space of the Rubik’s Cube with a cryptographically secure 256-bit random key. ",
+    github: "https://github.com/JannersLSR/Rubik-s-Cube-Cipher",
+    stack: ["Python"]
+  },
+  {
+    id: 6,
     title: "ClockIn",    
     description: "Attendance monitoring system that tracks employee clock in and out. Using a 3-Factor Verification System (QR Code, WiFi, and BLE Proximity) to secure logging work hours.",    
     stack: ["JavaScript", "Html", "CSS"]
   },
   {
-    id: 6,
+    id: 7,
     image: "/assets/project-images/fap-sys.png",
     title: "Financial Assistance Program System",
     description: "Voucher system for managing and distributing digital vouchers among high-school students.",

@@ -8,6 +8,7 @@ import Education from './component/education.tsx';
 import Project from './component/project.tsx';
 import FooterBar from './routes/footer.tsx';
 import ScrollTop from './component/scroll-top.tsx';
+import Reveal from './component/reveal.tsx';
 import '../styles/navbar.css';
 import '../styles/footer.css';
 import '../styles/content.css';
@@ -21,7 +22,8 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
       <div className="nav-links-wrapper">
         <div className="nav-links">
           <Link to="/" className="nav-item">Home</Link>
-          <Link to="/projects" className="nav-item">Projects</Link>          
+          <Link to="/projects" className="nav-item">Projects</Link>     
+          <Link to="/blog" className="nav-item">Blog</Link>
         </div>
       </div>
       <button className="theme-toggle" onClick={toggleTheme}>
@@ -35,11 +37,11 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
 
 const HomePage = () => (
   <main className="layout-root">      
-    <div className="content-wrapper">        
-      <Home />    
-      <span id="education"><Education /></span>    
+    <div className="content-wrapper">
+      <Reveal><Home /></Reveal>
+      <Reveal delay={0.15}><span id="education"><Education /></span></Reveal>
       <span id="projects"><Project /></span>
-      <FooterBar />
+      <Reveal delay={0.75}><FooterBar /></Reveal>
     </div>
   </main>
 );
@@ -61,7 +63,7 @@ function App() {
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/projects" element={<main className="layout-root"><div className="content-wrapper"><Projects /><FooterBar /></div></main>} />
+        <Route path="/projects" element={<main className="layout-root"><div className="content-wrapper"><Projects /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
       </Routes>
     </>
   );

@@ -1,32 +1,35 @@
 import Website from '../../assets/lucide/website.tsx';
 import Gith from '../../assets/lucide/github.tsx';
-import { ProjectData } from '../component/data/project-data'; 
+import { ProjectData } from '../component/data/project-data';
+import Reveal from '../component/reveal';
 
 const Projects = () => {
     const reversedProjects = [...ProjectData].reverse();
 
     return (
         <div className="project-container">
-            <div className="project-titlebar">
-                <span className="intro-text"><b>My Projects</b></span>
-            </div>
+            <Reveal>
+                <div className="project-titlebar">
+                    <span className="intro-text"><b>My Projects</b></span>
+                </div>
+            </Reveal>
 
             <div className="project-wrapper">
-                {reversedProjects.map((project) => (
-                    <div className="project-display" key={project.id}>
-                        <div className="project-screen">                    
-                            {project.image ? (
-                                <img 
-                                    src={project.image} 
-                                    alt={`${project.title} preview`} 
-                                    className="project-image" 
+                {reversedProjects.map((project, cardIndex) => (
+                    <Reveal delay={0.15 + Math.floor(cardIndex / 2) * 0.15} key={project.id}>
+                    <div className="project-display">
+                        {project.image ? (
+                            <a href={project.image} target="_blank" rel="noreferrer" className="project-image-link">
+                                <img
+                                    src={project.image}
+                                    alt={`${project.title} preview`}
+                                    className="project-image"
+                                    style={project.imagePosition ? { objectPosition: project.imagePosition } : undefined}
                                 />
-                            ) : (
-                                <div className="project-display-url">
-                                    WIP
-                                </div>
-                            )}
-                        </div>
+                            </a>
+                        ) : (
+                            <div className="project-display-dots" />
+                        )}
                         
                         <div className="project-display-content">
                             <h1><b><i>{project.title}</i></b></h1>  
@@ -50,11 +53,12 @@ const Projects = () => {
                                         <Gith /><span className='button-text'>source</span>
                                     </a>
                                 )}
-                            </div>                     
+                            </div>
                         </div>
                     </div>
+                    </Reveal>
                 ))}
-            </div> 
+            </div>
         </div>
     );
 };

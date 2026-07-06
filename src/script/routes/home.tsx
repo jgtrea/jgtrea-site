@@ -50,7 +50,8 @@ const Home = () => {
         <div className="summary-content">
           <p className="main-headline">
             I'm an Information Technology student studying at Malayan Colleges of Laguna, with 3 years of 
-            hands-on experience in software development. Currently having my internship at City Government of Biñan.
+            hands-on experience in software development. Driven by a passion for building web applications 
+            and workflow-boosting tools.
           </p>
         </div>                
       </div>          

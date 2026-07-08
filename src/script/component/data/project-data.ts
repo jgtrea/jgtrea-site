@@ -47,7 +47,7 @@ export const ProjectData: ProjectItem[] = [
     id: 6,
     title: "ClockIn",    
     description: "Attendance monitoring system that tracks employee clock in and out. Using a 3-Factor Verification System (QR Code, WiFi, and BLE Proximity) to secure logging work hours.",    
-    stack: ["JavaScript", "Html", "CSS"]
+    stack: ["JavaScript", "Html", "CSS", "QR Code", "Network", "Bluetooth Low Energy"]
   },
   {
     id: 7,

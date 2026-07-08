@@ -14,6 +14,12 @@
     --shadow: 0 1px 4px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.1);
 }
 
+html {
+    /* short pages (e.g. blog) have no scrollbar, which shifts centered
+       content relative to scrolling pages; keep the gutter reserved */
+    scrollbar-gutter: stable;
+}
+
 .layout-root {
     display: flex;
     flex-direction: column;

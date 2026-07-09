@@ -1,9 +1,8 @@
-import RightArrow from '../../assets/lucide/arrow';
 import Website from "@/assets/lucide/website";
 import Gith from '@/assets/lucide/github';
 import { ProjectData } from './data/project-data';
-import { Link } from 'react-router-dom';
 import Reveal from './reveal';
+import SectionHeader from './section-header';
 
 const Project = () => {
     const latestProjects = [...ProjectData].reverse().slice(0, 2);
@@ -11,13 +10,7 @@ const Project = () => {
     return (        
         <div className="project-container">
             <Reveal delay={0.3}>
-                <div className="project-titlebar">
-                    <span className="intro-text"><b>My Projects</b></span>
-                    <Link to="/projects" className="rect-btn">
-                        <span className='button-text'>others</span>
-                        <RightArrow />
-                    </Link>
-                </div>
+                <SectionHeader title="Recent projects" action={{ label: 'All projects', to: '/projects' }} />
             </Reveal>
 
             <div className="project-wrapper">

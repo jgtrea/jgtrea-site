@@ -5,6 +5,7 @@ import { LayoutGrid, Rows3 } from 'lucide-react';
 import { BlogData } from '../component/data/blog';
 import type { BlogPost } from '../component/data/blog';
 import Reveal from '../component/reveal';
+import SectionHeader from '../component/section-header';
 import '../../styles/blog.css';
 
 export const readMinutes = (post: BlogPost) =>
@@ -17,31 +18,33 @@ const Blog = () => {
     return (
         <div className="blog-container">
             <Reveal>
-                <div className="blog-titlebar">
-                    <span className="intro-text"><b>My Blog.</b></span>
-                    <div className="view-toggle">
-                        <button
-                            className={`view-toggle-btn${view === 'rows' ? ' active' : ''}`}
-                            onClick={() => setView('rows')}
-                            aria-label="Row view"
-                        >
-                            {view === 'rows' && (
-                                <motion.div layoutId="view-indicator" className="view-toggle-indicator" />
-                            )}
-                            <Rows3 />
-                        </button>
-                        <button
-                            className={`view-toggle-btn${view === 'grid' ? ' active' : ''}`}
-                            onClick={() => setView('grid')}
-                            aria-label="Grid view"
-                        >
-                            {view === 'grid' && (
-                                <motion.div layoutId="view-indicator" className="view-toggle-indicator" />
-                            )}
-                            <LayoutGrid />
-                        </button>
-                    </div>
-                </div>
+                <SectionHeader
+                    title="Blog"
+                    trailing={
+                        <div className="view-toggle">
+                            <button
+                                className={`view-toggle-btn${view === 'rows' ? ' active' : ''}`}
+                                onClick={() => setView('rows')}
+                                aria-label="Row view"
+                            >
+                                {view === 'rows' && (
+                                    <motion.div layoutId="view-indicator" className="view-toggle-indicator" />
+                                )}
+                                <Rows3 />
+                            </button>
+                            <button
+                                className={`view-toggle-btn${view === 'grid' ? ' active' : ''}`}
+                                onClick={() => setView('grid')}
+                                aria-label="Grid view"
+                            >
+                                {view === 'grid' && (
+                                    <motion.div layoutId="view-indicator" className="view-toggle-indicator" />
+                                )}
+                                <LayoutGrid />
+                            </button>
+                        </div>
+                    }
+                />
             </Reveal>
 
             <div className={view === 'rows' ? 'blog-list' : 'blog-grid'}>

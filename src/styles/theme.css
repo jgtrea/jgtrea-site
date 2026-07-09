@@ -1,15 +1,19 @@
 :root {
-    --bg: #09090b;
-    --bg-content: #09090b;
-    --text: #f9f9f6;
+    --bg: lab(2.75381% 0 0);
+    --card: lab(7.78201% 0 0);
+    --bg-content: var(--card);
+    --text: lab(98.26% 0 0);
+    --accent: lab(65% 0 0);
     --border: #333333;
     --shadow: none;
 }
 
 [data-theme='light'] {
-    --bg: #f9f9f6;
-    --bg-content: #f9f9f6;
-    --text: #09090b;
+    --bg: lab(98.26% 0 0);
+    --card: lab(100% 0 0);
+    --bg-content: var(--card);
+    --text: lab(2.75381% 0 0);
+    --accent: lab(40% 0 0);
     --border: #d2d2d7;
     --shadow: 0 1px 4px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.1);
 }
@@ -26,6 +30,7 @@ html {
     align-items: center;
     width: 100%;
     min-height: 100vh;
+    overflow-x: clip;
     background-color: var(--bg);
     color: var(--text); 
     transition: background-color 0.2s ease, color 0.2s ease;

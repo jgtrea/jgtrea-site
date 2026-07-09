@@ -8,6 +8,7 @@ import Blog from './routes/blog.tsx';
 import BlogPost from './routes/blog-post.tsx';
 import Education from './component/education.tsx';
 import Project from './component/project.tsx';
+import BlogPreview from './component/blog-preview.tsx';
 import FooterBar from './routes/footer.tsx';
 import ScrollTop from './component/scroll-top.tsx';
 import Reveal from './component/reveal.tsx';
@@ -24,7 +25,7 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
       <div className="nav-links-wrapper">
         <div className="nav-links">
           <Link to="/" className="nav-item">Home</Link>
-          <Link to="/projects" className="nav-item">Projects</Link>     
+          <Link to="/projects" className="nav-item">Projects</Link>
           <Link to="/blog" className="nav-item">Blog</Link>
         </div>
       </div>
@@ -43,13 +44,14 @@ const HomePage = () => (
       <Reveal><Home /></Reveal>
       <Reveal delay={0.15}><span id="education"><Education /></span></Reveal>
       <span id="projects"><Project /></span>
+      <span id="blog"><BlogPreview /></span>
       <Reveal delay={0.75}><FooterBar /></Reveal>
     </div>
   </main>
 );
 
 function App() {  
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
   const toggleTheme = () => {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));

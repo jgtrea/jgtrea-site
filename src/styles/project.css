@@ -1,17 +1,8 @@
 .project-container {
     width: 100%;
     min-height: 100%;
-    margin-bottom: 40px;
     box-sizing: border-box;
     z-index: 0;
-}
-
-.project-titlebar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 75px;
 }
 
 .project-wrapper {
@@ -34,7 +25,7 @@
     width: 100%;
     height: 100%;
     min-height: 250px;
-    background-color: var(--bg);
+    background-color: var(--card);
     border: 1px solid var(--border);
     border-radius: 4px;
     box-shadow: var(--shadow);
@@ -63,7 +54,7 @@
     width: 100%;
     height: 200px;
     flex-shrink: 0;
-    background-color: var(--bg);
+    background-color: var(--card);
     background-image: radial-gradient(var(--border) 1px, transparent 1px);
     background-size: 16px 16px;
 }
@@ -120,7 +111,7 @@
     font-size: 10px;
     font-weight: 600;
     color: var(--text);
-    background-color: var(--bgt);
+    background-color: var(--card);
     border: 1px solid var(--border);
     border-radius: 3px;
     padding: 2px 6px;
@@ -141,7 +132,7 @@
     align-items: center;
     justify-content: center;
     padding: 4px 8px;
-    background-color: var(--bg);
+    background-color: var(--card);
     border: 1px solid var(--border);
     border-radius: 4px;
     color: var(--text);

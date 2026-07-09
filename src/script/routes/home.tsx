@@ -17,44 +17,49 @@ const iconMap: { [key: string]: React.FC } = {
 const Home = () => {
   return (
     <div className="profile-section" id="home">
-      <div className="profile-details">
-        
-        <div className="top-row">
-          <div className="user-info">
-            <div className="img-container">
+      <div className="hero-frame">
+        <div className="hero-hatch" />
+        <div className="hero-body">
+
+          <div className="hero-top-row">
+            <span className="hero-eyebrow">
+              <span className="hero-chevron">&gt;</span>
+              <span className="hero-eyebrow-label">Software Developer</span>
+            </span>
+            <div className="hero-actions">
+              {socials.map((social) => {
+                const IconComponent = iconMap[social.icon];
+                return (
+                  <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="hero-action">
+                    <IconComponent />
+                  </a>
+                );
+              })}
+              <a href={resumeUrl} target="_blank" className="hero-action hero-action-text">
+                <Resume />
+                <span>CV</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="hero-main">
+            <div className="hero-text">
+              <h1 className="hero-name">Jan Gabriel Rea</h1>
+              <p className="hero-summary">
+                I'm an Information Technology student studying at Malayan Colleges of Laguna, with 3 years of
+                hands-on experience in software development. Driven by a passion for building web applications
+                and workflow-boosting tools.
+              </p>
+            </div>
+
+            <div className="hero-badge">
               <img src={profileImage} alt="Profile" />
             </div>
-            <div className="user-text">
-              <p className="intro-text"><b>Jan Gabriel Rea</b></p>
-              <p className="main-headline">Software Developer</p>
-            </div>
           </div>
 
-          <div className="social-icons">
-            {socials.map((social) => {
-              const IconComponent = iconMap[social.icon];
-              return (
-                <a key={social.name} href={social.url} target="_blank" rel="noopener noreferrer" className="icon-link">
-                  <IconComponent />
-                </a>
-              );
-            })}
-            
-            <a href={resumeUrl} target="_blank" className="rect-btn">
-              <Resume />
-              <span className='button-text'>CV</span>
-            </a>
-          </div>
         </div>
-
-        <div className="summary-content">
-          <p className="main-headline">
-            I'm an Information Technology student studying at Malayan Colleges of Laguna, with 3 years of 
-            hands-on experience in software development. Driven by a passion for building web applications 
-            and workflow-boosting tools.
-          </p>
-        </div>                
-      </div>          
+        <div className="hero-hatch" />
+      </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import Website from '../../assets/lucide/website.tsx';
 import Gith from '../../assets/lucide/github.tsx';
 import { ProjectData } from '../component/data/project-data';
 import Reveal from '../component/reveal';
+import SectionHeader from '../component/section-header';
 
 const Projects = () => {
     const reversedProjects = [...ProjectData].reverse();
@@ -9,9 +10,7 @@ const Projects = () => {
     return (
         <div className="project-container">
             <Reveal>
-                <div className="project-titlebar">
-                    <span className="intro-text"><b>My Projects.</b></span>
-                </div>
+                <SectionHeader title="Projects" />
             </Reveal>
 
             <div className="project-wrapper">

@@ -1,52 +1,138 @@
-.mantine-Tabs-list {
-    display: flex;
-    gap: 8px;
-    border: none;
-    margin-bottom: 12px;
+.edu-tabs-sentinel {
+    height: 1px;
+    width: 100%;
 }
 
-.tab {
-    transition: all 0.2s ease;
-    height: auto;
-    width: auto;
-    padding: 6px 14px;
-    border-radius: 3px;
-    border: 1px solid var(--border);
+/* Sticky header row: pill + tabs; on dock the pill fades out and the
+   tabs merge with the navbar */
+.edu-header-row {
+    position: sticky;
+    top: 60px;
+    z-index: 999;
     display: flex;
     align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+    min-height: 54px;
+    padding: 10px 0;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+
+.edu-header-row .section-pill {
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+}
+
+.edu-header-row.docked .section-pill {
+    position: absolute; /* out of flow so tabs slide to the left edge */
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Full-bleed backdrop; when docked it extends up behind the navbar so
+   both read as one continuous surface */
+.edu-header-row::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    z-index: -1;
+    pointer-events: none;
     background-color: transparent;
-    color: var(--text);
+    border-bottom: 1px solid transparent;
+    transition: background-color 0.25s ease, border-color 0.25s ease, top 0.25s ease;
+}
+
+.edu-header-row.docked::before {
+    top: -60px;
+    background-color: color-mix(in srgb, var(--bg) 75%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom-color: var(--border);
+}
+
+.edu-tabs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+/* Align first chip's text with the navbar links: cancel the chip's 12px
+   padding, +5px because navbar column (840px) is inset vs content (850px) */
+.edu-header-row.docked .edu-tabs {
+    margin-left: -7px;
+}
+
+/* Tab chips — plain rows like recent blogs */
+.edu-chip {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
-    opacity: 0.6;
-    box-shadow: var(--shadow);
+    color: var(--text);
+    background-color: transparent;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+    opacity: 0.55;
 }
 
-.tab:hover {
+.edu-chip:hover,
+.edu-chip.active {
     opacity: 1;
-    background-color: rgba(255, 255, 255, 0.05);
 }
 
-[data-theme='light'] .tab:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.tab[data-active] {
-    opacity: 1;
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-[data-theme='light'] .tab[data-active] {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.tab[data-active]::after {
-    display: none;
-}
-
-.tab-item {
-    font-weight: 500;
+.edu-chip-label {
+    font-family: 'Inter', sans-serif;
     font-size: 13px;
+    font-weight: 500;
+}
+
+/* Docked text takes navbar styling */
+.edu-header-row.docked .edu-chip-label {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Stacked sections */
+.edu-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    min-width: 0;
+}
+
+
+.edu-section {
+    z-index: 0;
+    width: 100%;
+    border: 1px solid var(--border);
+    background-color: var(--bg-content);
+    transition: border-color 0.3s ease;
+    padding: 24px;
+    scroll-margin-top: 130px;
+}
+
+.edu-section-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.edu-section-title h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text);
 }
 
 .background-section {

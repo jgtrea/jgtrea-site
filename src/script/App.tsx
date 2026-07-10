@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
+import { motion, LayoutGroup } from 'framer-motion';
 import Moon from '../assets/lucide/moon.tsx';
 import Sunn from '../assets/lucide/sun.tsx';
 import Home from './routes/home.tsx';
 import Projects from './routes/projects.tsx';
 import Blog from './routes/blog.tsx';
 import BlogPost from './routes/blog-post.tsx';
+import Practicum from './routes/practicum/practicum.tsx';
+import TaskPost from './routes/practicum/task-post.tsx';
 import Education from './component/education.tsx';
 import Project from './component/project.tsx';
 import BlogPreview from './component/blog-preview.tsx';
@@ -19,38 +22,170 @@ import '../styles/education.css';
 import '../styles/project.css';
 import '../styles/theme.css';
 
+// After the button shift, during a Practicum↔Home switch
+const navLinkFade = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { delay: 0.45, duration: 0.25, ease: 'easeOut' },
+} as const;
+
+// Initial page load / refresh: nav items enter with the page
+const navMountFade = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { duration: 0.5, ease: 'easeOut' },
+} as const;
+
+const pracNavLinks = [
+  { id: 'prac-overview', label: 'Overview' },
+  { id: 'prac-background', label: 'Background' },
+  { id: 'prac-tasks', label: 'Tasks' },
+  { id: 'prac-seminar', label: 'Seminar' },
+  { id: 'prac-synthesis', label: 'Synthesis' },
+];
+
+const scrollToSection = (id: string) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - 100;
+  window.scrollTo({ top, behavior: 'smooth' });
+};
+
+// In-memory (does not survive refresh, unlike location.state): navigations
+// triggered by the mode button are tagged by their history key, so only
+// those play the shift sequence — loads and refreshes play the page entrance
+let pendingModeSwitch = false;
+const modeSwitchKeys = new Set<string>();
+const useModeSwitch = () => {
+  const location = useLocation();
+  if (pendingModeSwitch) {
+    modeSwitchKeys.add(location.key);
+    pendingModeSwitch = false;
+  }
+  return modeSwitchKeys.has(location.key);
+};
+
 const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, toggleTheme }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const inPracticum = location.pathname.startsWith('/practicum');
+  const modeSwitch = useModeSwitch();
+
   return (
     <nav className="navbar-container">
       <div className="nav-links-wrapper">
-        <div className="nav-links">
-          <Link to="/" className="nav-item">Home</Link>
-          <Link to="/projects" className="nav-item">Projects</Link>
-          <Link to="/blog" className="nav-item">Blog</Link>
-        </div>
+        <LayoutGroup>
+          <div className="nav-links">
+            {/* Button never moves in the DOM — flex `order` swaps its visual
+                slot and `layout` animates the shift, same in both directions */}
+            <motion.button
+              layout
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ opacity: { duration: 0.5, ease: 'easeOut' }, layout: { duration: 0.55, ease: [0.4, 0, 0.2, 1] } }}
+              className="nav-mode-btn"
+              style={{ order: inPracticum ? -1 : 1 }}
+              onClick={() => { pendingModeSwitch = true; navigate(inPracticum ? '/' : '/practicum'); }}
+            >
+              {inPracticum ? 'Home' : 'Practicum'}
+            </motion.button>
+            {/* One animated wrapper per link set: it remounts (and fades)
+                only when the mode flips, never on ordinary route changes */}
+            {inPracticum ? (
+              <motion.div
+                key="prac-links"
+                className="nav-group nav-group-practicum"
+                {...(modeSwitch ? navLinkFade : navMountFade)}
+              >
+                {pracNavLinks.map((s) => (
+                  <a
+                    key={s.id}
+                    href={`#${s.id}`}
+                    className="nav-item"
+                    onClick={(e) => { e.preventDefault(); scrollToSection(s.id); }}
+                  >
+                    {s.label}
+                  </a>
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div
+                key="main-links"
+                className="nav-group"
+                {...(modeSwitch ? navLinkFade : navMountFade)}
+              >
+                <Link to="/" className="nav-item">Home</Link>
+                <Link to="/projects" className="nav-item">Projects</Link>
+                <Link to="/blog" className="nav-item">Blog</Link>
+              </motion.div>
+            )}
+          </div>
+        </LayoutGroup>
       </div>
       <button className="theme-toggle" onClick={toggleTheme}>
         <span className="icon-sun-moon">
           {theme === 'light' ? <Moon /> : <Sunn /> }
-        </span> 
+        </span>
       </button>
     </nav>
   );
 };
 
-const HomePage = () => (
-  <main className="layout-root">      
-    <div className="content-wrapper">
-      <Reveal><Home /></Reveal>
-      <Reveal delay={0.15}><span id="education"><Education /></span></Reveal>
-      <span id="projects"><Project /></span>
-      <span id="blog"><BlogPreview /></span>
-      <Reveal delay={0.75}><FooterBar /></Reveal>
-    </div>
-  </main>
+const HomeContent = () => (
+  <>
+    <Reveal><Home /></Reveal>
+    <Reveal delay={0.15}><span id="education"><Education /></span></Reveal>
+    <span id="projects"><Project /></span>
+    <span id="blog"><BlogPreview /></span>
+    <Reveal delay={0.75}><FooterBar /></Reveal>
+  </>
 );
 
-function App() {  
+// When enabled, mounts children only after the nav button shift (0.55s) so
+// their entrance animations play visibly. Always kept in the tree so later
+// navigations don't remount (and re-animate) the page content.
+const AfterShift = ({ enabled, children }: { enabled: boolean; children: React.ReactNode }) => {
+  const [show, setShow] = useState(!enabled);
+  useEffect(() => {
+    if (show) return;
+    const t = setTimeout(() => setShow(true), 550);
+    return () => clearTimeout(t);
+  }, [show]);
+  return show ? <>{children}</> : null;
+};
+
+// Delay home content only when arriving via the Practicum→Home button shift;
+// the layout shell stays mounted so the page background never flashes
+const HomeRoute = () => {
+  const modeSwitch = useModeSwitch();
+  return (
+    <main className="layout-root">
+      <div className="content-wrapper">
+        <AfterShift enabled={modeSwitch}><HomeContent /></AfterShift>
+      </div>
+    </main>
+  );
+};
+
+const PracticumContent = () => (
+  <>
+    <Reveal><Practicum /></Reveal>
+    <Reveal delay={0.3}><FooterBar /></Reveal>
+  </>
+);
+
+const PracticumRoute = () => {
+  const modeSwitch = useModeSwitch();
+  return (
+    <main className="layout-root">
+      <div className="content-wrapper">
+        <AfterShift enabled={modeSwitch}><PracticumContent /></AfterShift>
+      </div>
+    </main>
+  );
+};
+
+function App() {
   const [theme, setTheme] = useState('dark');
 
   const toggleTheme = () => {
@@ -66,10 +201,12 @@ function App() {
       <ScrollTop />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomeRoute />} />
         <Route path="/projects" element={<main className="layout-root"><div className="content-wrapper"><Projects /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
         <Route path="/blog" element={<main className="layout-root"><div className="content-wrapper"><Blog /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
         <Route path="/blog/:id" element={<main className="layout-root"><div className="content-wrapper"><BlogPost /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
+        <Route path="/practicum" element={<PracticumRoute />} />
+        <Route path="/practicum/task/:id" element={<main className="layout-root"><div className="content-wrapper"><TaskPost /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
       </Routes>
     </>
   );

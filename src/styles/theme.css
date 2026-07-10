@@ -36,10 +36,15 @@ html {
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+body {
+    /* dark fallback behind route swaps so no light flash between pages */
+    background-color: var(--bg);
+}
+
 .content-wrapper {
     width: 100%;
     max-width: 850px;
-    padding: 80px 24px 0;
+    padding: 128px 24px 0;
     box-sizing: border-box;
 }
 

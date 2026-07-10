@@ -52,7 +52,7 @@ export const ProjectData: ProjectItem[] = [
   {
     id: 7,
     image: "/assets/project-images/fap-sys.png",
-    title: "Financial Assistance Program System",
+    title: "Voucher Web System",
     description: "Voucher system for managing and distributing digital vouchers among high-school students.",
     stack: ["PHP 8.2", "CodeIgniter 4", "Composer", "MySQL", "jQuery", "Bootstrap 5"]
   }

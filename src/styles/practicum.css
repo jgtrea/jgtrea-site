@@ -1,0 +1,251 @@
+.practicum-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.practicum-section {
+    scroll-margin-top: 100px;
+}
+
+.practicum-section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Overview / hours */
+.practicum-hours-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.practicum-hours-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.practicum-hours-value {
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.practicum-hours-label {
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text);
+    opacity: 0.6;
+}
+
+.practicum-hours-bar {
+    width: 100%;
+    height: 6px;
+    background-color: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.practicum-hours-fill {
+    height: 100%;
+    background-color: var(--accent);
+    border-radius: 3px;
+    transition: width 0.6s ease;
+}
+
+.practicum-hours-caption {
+    font-size: 13px;
+    color: var(--text);
+    opacity: 0.6;
+}
+
+/* Weekly log */
+.practicum-log {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.practicum-log-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 20px;
+    background-color: var(--card);
+}
+
+.practicum-log-row + .practicum-log-row {
+    border-top: 1px solid var(--border);
+}
+
+.practicum-log-week {
+    flex-shrink: 0;
+    width: 72px;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-size: 12px;
+    color: var(--accent);
+}
+
+.practicum-log-summary {
+    flex: 1;
+    font-size: 14px;
+    color: var(--text);
+    opacity: 0.8;
+}
+
+.practicum-log-hours {
+    flex-shrink: 0;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-size: 12px;
+    color: var(--text);
+    opacity: 0.6;
+}
+
+/* Generic cards */
+.practicum-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.practicum-card-title {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.practicum-card-meta {
+    margin: 0;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-size: 12px;
+    color: var(--text);
+    opacity: 0.6;
+}
+
+.practicum-card-body {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    opacity: 0.8;
+}
+
+.practicum-assignments {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Task cards */
+.practicum-card-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.practicum-task-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.practicum-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 16px;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.practicum-stack-row {
+    display: flex;
+    gap: 12px;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-size: 12px;
+}
+
+.practicum-stack-label {
+    flex-shrink: 0;
+    width: 90px;
+    color: var(--accent);
+}
+
+.practicum-stack-value {
+    color: var(--text);
+    opacity: 0.8;
+}
+
+.practicum-task-hero {
+    margin-bottom: 20px;
+}
+
+.practicum-task-images {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.practicum-task-images img {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    display: block;
+}
+
+.practicum-work-list {
+    margin: 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--text);
+    opacity: 0.8;
+}
+
+.practicum-work-title {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.practicum-task-status {
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+}
+
+.practicum-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.practicum-tag {
+    padding: 3px 10px;
+    font-size: 12px;
+    color: var(--text);
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    opacity: 0.8;
+}

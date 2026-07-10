@@ -1,0 +1,2 @@
+export const synthesis =
+  'Placeholder.'

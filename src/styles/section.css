@@ -10,7 +10,10 @@
 .section-pill {
     display: inline-flex;
     align-items: center;
-    padding: 5px 14px;
+    height: 32px;
+    padding: 0 14px;
+    box-sizing: border-box;
+    line-height: 1;
     font-size: 13px;
     font-weight: 500;
     color: var(--text);

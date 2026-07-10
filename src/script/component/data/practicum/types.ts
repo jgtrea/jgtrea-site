@@ -15,6 +15,5 @@ export type PracticumTask = {
   workIntro?: string;
   work: { title: string; detail: string }[];
   status?: string;
-  /* screenshot paths, e.g. imported assets */
   images: string[];
 };

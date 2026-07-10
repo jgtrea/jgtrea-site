@@ -11,6 +11,7 @@ import Practicum from './routes/practicum/practicum.tsx';
 import TaskPost from './routes/practicum/task-post.tsx';
 import SynthesisPost from './routes/practicum/synthesis-post.tsx';
 import Education from './component/education.tsx';
+import Skills from './component/skills.tsx';
 import Project from './component/project.tsx';
 import BlogPreview from './component/blog-preview.tsx';
 import FooterBar from './routes/footer.tsx';
@@ -69,10 +70,6 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
   const btnRef = useRef<HTMLButtonElement>(null);
   const prevLeft = useRef<number | null>(null);
 
-  // Manual FLIP for the mode button: the navbar is position:fixed, so
-  // viewport coordinates are immune to page scroll — unlike framer's
-  // `layout` prop, which compensates for scroll and drifts vertically
-  // when a route change resets the scroll position
   useLayoutEffect(() => {
     const el = btnRef.current;
     if (!el || prevLeft.current === null) return;
@@ -129,6 +126,7 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
                 {...(modeSwitch ? navLinkFade : navMountFade)}
               >
                 <Link to="/" className="nav-item">Home</Link>
+                <Link to="/#skills" className="nav-item">Skills</Link>
                 <Link to="/projects" className="nav-item">Projects</Link>
                 <Link to="/blog" className="nav-item">Blog</Link>
               </motion.div>
@@ -148,6 +146,7 @@ const HomeContent = () => (
   <>
     <Reveal><Home /></Reveal>
     <Reveal delay={0.15}><span id="education"><Education /></span></Reveal>
+    <Reveal delay={0.3}><span id="skills"><Skills /></span></Reveal>
     <span id="projects"><Project /></span>
     <span id="blog"><BlogPreview /></span>
     <Reveal delay={0.75}><FooterBar /></Reveal>
@@ -166,6 +165,14 @@ const AfterShift =({ enabled, children }: { enabled: boolean; children: React.Re
 
 const HomeRoute =() => {
   const modeSwitch = useModeSwitch();
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return;
+    const t = setTimeout(() => scrollToSection(hash.slice(1)), 100);
+    return () => clearTimeout(t);
+  }, [hash]);
+
   return (
     <main className="layout-root">
       <div className="content-wrapper">

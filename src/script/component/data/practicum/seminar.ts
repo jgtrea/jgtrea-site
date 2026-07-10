@@ -10,7 +10,6 @@ export type SeminarEntry = {
   speaker?: string;
   date: string;
   description: string;
-  /* certificate image or PDF; omit while the cert file isn't available yet */
   cert?: string;
 };
 

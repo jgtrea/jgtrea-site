@@ -76,7 +76,7 @@ export const tasks: PracticumTask[] = [
     status:
       'The system is currently deployed and being tested by the CEDO staff. Feedback from this testing ' +
       'phase will guide the remaining refinements before full adoption.',
-    images: ['/assets/project-images/fap-sys.png'], // screenshots of developed modules/dashboard
+    images: ['/assets/project-images/fap-sys.png'],
   },
   {
     id: 2,

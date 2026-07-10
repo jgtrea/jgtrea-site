@@ -22,14 +22,12 @@ import '../styles/education.css';
 import '../styles/project.css';
 import '../styles/theme.css';
 
-// After the button shift, during a Practicum↔Home switch
 const navLinkFade = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
   transition: { delay: 0.45, duration: 0.25, ease: 'easeOut' },
 } as const;
 
-// Initial page load / refresh: nav items enter with the page
 const navMountFade = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
@@ -51,9 +49,6 @@ const scrollToSection = (id: string) => {
   window.scrollTo({ top, behavior: 'smooth' });
 };
 
-// In-memory (does not survive refresh, unlike location.state): navigations
-// triggered by the mode button are tagged by their history key, so only
-// those play the shift sequence — loads and refreshes play the page entrance
 let pendingModeSwitch = false;
 const modeSwitchKeys = new Set<string>();
 const useModeSwitch = () => {
@@ -72,12 +67,10 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
   const modeSwitch = useModeSwitch();
 
   return (
-    <nav className="navbar-container">
+    <motion.nav layoutRoot className="navbar-container">
       <div className="nav-links-wrapper">
         <LayoutGroup>
           <div className="nav-links">
-            {/* Button never moves in the DOM — flex `order` swaps its visual
-                slot and `layout` animates the shift, same in both directions */}
             <motion.button
               layout
               initial={{ opacity: 0 }}
@@ -85,12 +78,10 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
               transition={{ opacity: { duration: 0.5, ease: 'easeOut' }, layout: { duration: 0.55, ease: [0.4, 0, 0.2, 1] } }}
               className="nav-mode-btn"
               style={{ order: inPracticum ? -1 : 1 }}
-              onClick={() => { pendingModeSwitch = true; navigate(inPracticum ? '/' : '/practicum'); }}
+              onClick={() => { window.scrollTo(0, 0); pendingModeSwitch = true; navigate(inPracticum ? '/' : '/practicum'); }}
             >
               {inPracticum ? 'Home' : 'Practicum'}
             </motion.button>
-            {/* One animated wrapper per link set: it remounts (and fades)
-                only when the mode flips, never on ordinary route changes */}
             {inPracticum ? (
               <motion.div
                 key="prac-links"
@@ -114,9 +105,9 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
                 className="nav-group"
                 {...(modeSwitch ? navLinkFade : navMountFade)}
               >
-                <Link to="/" className="nav-item">Home</Link>
-                <Link to="/projects" className="nav-item">Projects</Link>
-                <Link to="/blog" className="nav-item">Blog</Link>
+                <Link to="/" className="nav-item" onClick={() => window.scrollTo(0, 0)}>Home</Link>
+                <Link to="/projects" className="nav-item" onClick={() => window.scrollTo(0, 0)}>Projects</Link>
+                <Link to="/blog" className="nav-item" onClick={() => window.scrollTo(0, 0)}>Blog</Link>
               </motion.div>
             )}
           </div>
@@ -127,7 +118,7 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
           {theme === 'light' ? <Moon /> : <Sunn /> }
         </span>
       </button>
-    </nav>
+    </motion.nav>
   );
 };
 
@@ -141,10 +132,7 @@ const HomeContent = () => (
   </>
 );
 
-// When enabled, mounts children only after the nav button shift (0.55s) so
-// their entrance animations play visibly. Always kept in the tree so later
-// navigations don't remount (and re-animate) the page content.
-const AfterShift = ({ enabled, children }: { enabled: boolean; children: React.ReactNode }) => {
+const AfterShift =({ enabled, children }: { enabled: boolean; children: React.ReactNode }) => {
   const [show, setShow] = useState(!enabled);
   useEffect(() => {
     if (show) return;
@@ -154,9 +142,7 @@ const AfterShift = ({ enabled, children }: { enabled: boolean; children: React.R
   return show ? <>{children}</> : null;
 };
 
-// Delay home content only when arriving via the Practicum→Home button shift;
-// the layout shell stays mounted so the page background never flashes
-const HomeRoute = () => {
+const HomeRoute =() => {
   const modeSwitch = useModeSwitch();
   return (
     <main className="layout-root">

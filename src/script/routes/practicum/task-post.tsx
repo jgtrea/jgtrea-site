@@ -34,9 +34,11 @@ const TaskPost = () => {
           </div>
         )}
         <h1 className="blog-post-title">{task.title}</h1>
-        {task.subtitle && (
+        {(task.subtitle || task.period) && (
           <div className="blog-card-meta">
-            <span>{task.subtitle}</span>
+            {task.subtitle && <span>{task.subtitle}</span>}
+            {task.subtitle && task.period && <span>&middot;</span>}
+            {task.period && <span>{task.period}</span>}
           </div>
         )}
       </Reveal>
@@ -44,23 +46,27 @@ const TaskPost = () => {
         <div className="practicum-task-detail">
           <p className="practicum-card-body">{task.description}</p>
 
-          <div className="practicum-stack">
-            {task.stack.map((item) => (
-              <div key={item.label} className="practicum-stack-row">
-                <span className="practicum-stack-label">{item.label}</span>
-                <span className="practicum-stack-value">{item.value}</span>
-              </div>
-            ))}
-          </div>
+          {task.stack.length > 0 && (
+            <div className="practicum-stack">
+              {task.stack.map((item) => (
+                <div key={item.label} className="practicum-stack-row">
+                  <span className="practicum-stack-label">{item.label}</span>
+                  <span className="practicum-stack-value">{item.value}</span>
+                </div>
+              ))}
+            </div>
+          )}
 
           {task.workIntro && <p className="practicum-card-body">{task.workIntro}</p>}
-          <ul className="practicum-work-list">
-            {task.work.map((item) => (
-              <li key={item.title}>
-                <span className="practicum-work-title">{item.title}</span> - {item.detail}
-              </li>
-            ))}
-          </ul>
+          {task.work.length > 0 && (
+            <ul className="practicum-work-list">
+              {task.work.map((item) => (
+                <li key={item.title}>
+                  <span className="practicum-work-title">{item.title}</span> - {item.detail}
+                </li>
+              ))}
+            </ul>
+          )}
 
           {task.status && <p className="practicum-card-body practicum-task-status">{task.status}</p>}
         </div>

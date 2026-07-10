@@ -9,6 +9,7 @@ export type PracticumTask = {
   id: number;
   title: string;
   subtitle?: string;
+  period?: string;
   description: string;
   stack: { label: string; value: string }[];
   workIntro?: string;

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
-import { motion, LayoutGroup } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Moon from '../assets/lucide/moon.tsx';
 import Sunn from '../assets/lucide/sun.tsx';
 import Home from './routes/home.tsx';
@@ -9,6 +9,7 @@ import Blog from './routes/blog.tsx';
 import BlogPost from './routes/blog-post.tsx';
 import Practicum from './routes/practicum/practicum.tsx';
 import TaskPost from './routes/practicum/task-post.tsx';
+import SynthesisPost from './routes/practicum/synthesis-post.tsx';
 import Education from './component/education.tsx';
 import Project from './component/project.tsx';
 import BlogPreview from './component/blog-preview.tsx';
@@ -65,20 +66,42 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
   const navigate = useNavigate();
   const inPracticum = location.pathname.startsWith('/practicum');
   const modeSwitch = useModeSwitch();
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const prevLeft = useRef<number | null>(null);
+
+  // Manual FLIP for the mode button: the navbar is position:fixed, so
+  // viewport coordinates are immune to page scroll — unlike framer's
+  // `layout` prop, which compensates for scroll and drifts vertically
+  // when a route change resets the scroll position
+  useLayoutEffect(() => {
+    const el = btnRef.current;
+    if (!el || prevLeft.current === null) return;
+    const dx = prevLeft.current - el.getBoundingClientRect().left;
+    prevLeft.current = null;
+    if (dx === 0) return;
+    el.style.transition = 'none';
+    el.style.transform = `translateX(${dx}px)`;
+    void el.offsetWidth;
+    el.style.transition = 'transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)';
+    el.style.transform = 'translateX(0)';
+  }, [inPracticum]);
 
   return (
-    <motion.nav layoutRoot className="navbar-container">
+    <nav className="navbar-container">
       <div className="nav-links-wrapper">
-        <LayoutGroup>
           <div className="nav-links">
             <motion.button
-              layout
+              ref={btnRef}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ opacity: { duration: 0.5, ease: 'easeOut' }, layout: { duration: 0.55, ease: [0.4, 0, 0.2, 1] } }}
+              transition={{ opacity: { duration: 0.5, ease: 'easeOut' } }}
               className="nav-mode-btn"
               style={{ order: inPracticum ? -1 : 1 }}
-              onClick={() => { window.scrollTo(0, 0); pendingModeSwitch = true; navigate(inPracticum ? '/' : '/practicum'); }}
+              onClick={() => {
+                prevLeft.current = btnRef.current?.getBoundingClientRect().left ?? null;
+                pendingModeSwitch = true;
+                navigate(inPracticum ? '/' : '/practicum');
+              }}
             >
               {inPracticum ? 'Home' : 'Practicum'}
             </motion.button>
@@ -105,20 +128,19 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
                 className="nav-group"
                 {...(modeSwitch ? navLinkFade : navMountFade)}
               >
-                <Link to="/" className="nav-item" onClick={() => window.scrollTo(0, 0)}>Home</Link>
-                <Link to="/projects" className="nav-item" onClick={() => window.scrollTo(0, 0)}>Projects</Link>
-                <Link to="/blog" className="nav-item" onClick={() => window.scrollTo(0, 0)}>Blog</Link>
+                <Link to="/" className="nav-item">Home</Link>
+                <Link to="/projects" className="nav-item">Projects</Link>
+                <Link to="/blog" className="nav-item">Blog</Link>
               </motion.div>
             )}
           </div>
-        </LayoutGroup>
       </div>
       <button className="theme-toggle" onClick={toggleTheme}>
         <span className="icon-sun-moon">
           {theme === 'light' ? <Moon /> : <Sunn /> }
         </span>
       </button>
-    </motion.nav>
+    </nav>
   );
 };
 
@@ -192,6 +214,7 @@ function App() {
         <Route path="/blog" element={<main className="layout-root"><div className="content-wrapper"><Blog /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
         <Route path="/blog/:id" element={<main className="layout-root"><div className="content-wrapper"><BlogPost /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
         <Route path="/practicum" element={<PracticumRoute />} />
+        <Route path="/practicum/synthesis" element={<main className="layout-root"><div className="content-wrapper"><SynthesisPost /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
         <Route path="/practicum/task/:id" element={<main className="layout-root"><div className="content-wrapper"><TaskPost /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
       </Routes>
     </>

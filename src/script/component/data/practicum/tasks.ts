@@ -5,6 +5,7 @@ export const tasks: PracticumTask[] = [
     id: 1,
     title: 'Voucher Web System',
     subtitle: 'City Education Office - Financial Assistance Program',
+    period: 'May 29, 2026 - June 10, 2026',
     description:
       "The Voucher Web System was developed to manage the City Education Office's process of handling " +
       'student financial assistance, from application to voucher generation and record tracking. It ' +
@@ -37,10 +38,10 @@ export const tasks: PracticumTask[] = [
           'A login system was built with session validation and password encryption to keep accounts secure.',
       },
       {
-        title: 'Admin and User Roles',
+        title: 'Admin, Dev, and User Roles',
         detail:
-          'Different access levels were set up so admins and regular users only see the features meant for ' +
-          'their role.',
+          'Different access levels were set up so admins, devs, and regular users only see the features ' +
+          'meant for their role.',
       },
       {
         title: 'Dashboard',
@@ -76,5 +77,16 @@ export const tasks: PracticumTask[] = [
       'The system is currently deployed and being tested by the CEDO staff. Feedback from this testing ' +
       'phase will guide the remaining refinements before full adoption.',
     images: ['/assets/project-images/fap-sys.png'], // screenshots of developed modules/dashboard
+  },
+  {
+    id: 2,
+    title: 'Ticketing System',
+    period: 'June 13, 2026 - Present',
+    description:
+      'A ticketing system assigned as the next task after the Voucher Web System, intended to track and ' +
+      'manage requests and reported issues. Development is in its early stages.',
+    stack: [],
+    work: [],
+    images: [],
   },
 ];

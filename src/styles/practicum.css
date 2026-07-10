@@ -164,6 +164,7 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    margin-top: 24px; /* match .blog-post-content spacing below the title/meta */
 }
 
 .practicum-stack {
@@ -231,6 +232,142 @@
 .practicum-task-status {
     border-top: 1px solid var(--border);
     padding-top: 12px;
+}
+
+/* Seminar carousel: certificate thumbnail left, text right */
+.practicum-carousel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.practicum-carousel-viewport {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.practicum-carousel-arrow {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    cursor: pointer;
+    color: var(--text);
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.practicum-carousel-arrow:hover {
+    opacity: 1;
+    border-color: var(--accent);
+}
+
+.practicum-carousel-arrow svg {
+    width: 16px;
+    height: 16px;
+}
+
+.practicum-carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.practicum-carousel-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--border);
+    transition: background-color 0.2s ease;
+}
+
+.practicum-carousel-dot.active {
+    background-color: var(--accent);
+}
+
+.practicum-seminar-row {
+    display: flex;
+    align-items: center; /* cert image vertically centered */
+    gap: 20px;
+    min-height: 180px; /* uniform slide size across all seminars */
+}
+
+.practicum-seminar-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.practicum-cert {
+    flex-shrink: 0;
+    display: block;
+    width: 140px;
+}
+
+.practicum-cert img {
+    width: 100%;
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.practicum-cert:hover img {
+    opacity: 0.85;
+    border-color: var(--accent);
+}
+
+/* Placeholder shown while a seminar's certificate isn't available yet */
+.practicum-cert-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    height: 104px;
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text);
+    opacity: 0.45;
+}
+
+/* PDF certificate preview: non-interactive thumbnail, click hits the link */
+.practicum-cert iframe {
+    width: 100%;
+    height: 104px;
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: #fff;
+    pointer-events: none;
+}
+
+.practicum-cert:hover iframe {
+    opacity: 0.85;
+    border-color: var(--accent);
+}
+
+@media (max-width: 640px) {
+    .practicum-seminar-row {
+        flex-direction: column;
+    }
 }
 
 .practicum-tags {

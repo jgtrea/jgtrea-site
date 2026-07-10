@@ -22,10 +22,18 @@ const Home = () => {
         <div className="hero-body">
 
           <div className="hero-top-row">
-            <span className="hero-eyebrow">
-              <span className="hero-chevron">&gt;</span>
-              <span className="hero-eyebrow-label">Software Developer</span>
-            </span>
+            <div className="hero-user-info">
+              <div className="hero-avatar">
+                <img src={profileImage} alt="Profile" />
+              </div>
+              <div className="hero-user-text">
+                <h1 className="hero-name">Jan Gabriel Rea</h1>
+                <span className="hero-eyebrow">
+                  <span className="hero-chevron">&gt;</span>
+                  <span className="hero-eyebrow-label">Software Developer</span>
+                </span>
+              </div>
+            </div>
             <div className="hero-actions">
               {socials.map((social) => {
                 const IconComponent = iconMap[social.icon];
@@ -42,20 +50,11 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="hero-main">
-            <div className="hero-text">
-              <h1 className="hero-name">Jan Gabriel Rea</h1>
-              <p className="hero-summary">
-                I'm an Information Technology student studying at Malayan Colleges of Laguna, with 3 years of
-                hands-on experience in software development. Driven by a passion for building web applications
-                and workflow-boosting tools.
-              </p>
-            </div>
-
-            <div className="hero-badge">
-              <img src={profileImage} alt="Profile" />
-            </div>
-          </div>
+          <p className="hero-summary">
+            I'm an Information Technology student studying at Malayan Colleges of Laguna, with 3 years of
+            hands-on experience in software development. Driven by a passion for building web applications
+            and workflow-boosting tools.
+          </p>
 
         </div>
         <div className="hero-hatch" />

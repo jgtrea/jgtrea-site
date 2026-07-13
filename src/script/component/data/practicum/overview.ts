@@ -14,6 +14,7 @@ export const practicumLog: PracticumLogEntry[] = [
   { week: 'Week 9', period: '', summary: 'Revisions, TechTalk seminar, UI/UX polishing', hours: 32 },
   { week: 'Week 10', period: '', summary: 'Documentation, user manual drafting, database-driven dropdowns', hours: 32 },
   { week: 'Week 11', period: '', summary: 'User manual, validation and testing, reference commits, client deployment and feedback adjustments', hours: 32 },
+  { week: 'Week 12', period: '', summary: 'Minor adjustments to Voucher system based on feedback', hours: 32 }
 ];
 
 export const totalHours = practicumLog.reduce((sum, entry) => sum + entry.hours, 0);

@@ -73,9 +73,91 @@ export const tasks: PracticumTask[] = [
           'Old records can be archived, and an audit log tracks system activity for transparency.',
       },
     ],
-    status:
-      'The system is currently deployed and being tested by the CEDO staff. Feedback from this testing ' +
-      'phase will guide the remaining refinements before full adoption.',
+    screens: [
+      {
+        group: 'Admin Side',
+        intro:
+          'Admins have full access to the system: managing records, generating vouchers, and overseeing ' +
+          'users, archives, and audit logs.',
+        items: [
+          {
+            src: '/assets/prac-sys/ad-dash.png',
+            caption:
+              'Dashboard - Gives admins an overview of student totals, printed vouchers, and the most ' +
+              'recent student records.',
+          },
+          {
+            src: '/assets/prac-sys/ad-stud.png',
+            caption:
+              'Student Management - Used to search, filter, import, and add student financial assistance ' +
+              'records.',
+          },
+          {
+            src: '/assets/prac-sys/ad-school.png',
+            caption:
+              'School Management - Used to maintain junior and senior high school data, with import and ' +
+              'export options.',
+          },
+          {
+            src: '/assets/prac-sys/ad-sig.png',
+            caption:
+              'Signatories Management - Used to manage the active signatories whose names and positions ' +
+              'appear on vouchers.',
+          },
+          {
+            src: '/assets/prac-sys/ad-gen.png',
+            caption:
+              'Voucher Generation - Used to search, filter, export, and print student vouchers.',
+          },
+          {
+            src: '/assets/prac-sys/ad-user.png',
+            caption:
+              'User Management - Used to manage staff accounts, their access levels, and account status.',
+          },
+          {
+            src: '/assets/prac-sys/ad-other.png',
+            caption:
+              'Other Options - Used to manage custom dropdown values for the suffix, prefix, and degree ' +
+              'fields.',
+          },
+          {
+            src: '/assets/prac-sys/ad-arch.png',
+            caption:
+              'Archive - Used to view archived student records by school year, archive current data, and ' +
+              'export records.',
+          },
+          {
+            src: '/assets/prac-sys/ad-aud.png',
+            caption:
+              'Audit Logs - Used to track account activity and voucher changes, searchable by action, ' +
+              'date, and user.',
+          },
+        ],
+      },
+      {
+        group: 'User Side',
+        intro:
+          'Regular users get a simplified view focused on day-to-day work: managing students, generating ' +
+          'vouchers, and reviewing their own activity.',
+        items: [
+          {
+            src: '/assets/prac-sys/us-stud.png',
+            caption:
+              'Student Management - Used to manage student records without the admin-only import and ' +
+              'system controls.',
+          },
+          {
+            src: '/assets/prac-sys/us-gen.png',
+            caption: 'Voucher Generation - Used to search, export, and print student vouchers.',
+          },
+          {
+            src: '/assets/prac-sys/us-log.png',
+            caption:
+              "My Logs - Shows the user's own account activity, such as logins and voucher changes.",
+          },
+        ],
+      },
+    ],
     images: ['/assets/project-images/fap-sys.png'],
   },
   {

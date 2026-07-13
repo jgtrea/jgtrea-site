@@ -69,6 +69,19 @@ const TaskPost = () => {
           )}
 
           {task.status && <p className="practicum-card-body practicum-task-status">{task.status}</p>}
+
+          {task.screens?.map((group) => (
+            <div key={group.group} className="practicum-screens-group">
+              <h2 className="practicum-screens-title">{group.group}</h2>
+              <p className="practicum-card-body">{group.intro}</p>
+              {group.items.map((item) => (
+                <figure key={item.src} className="practicum-screen">
+                  <img src={item.src} alt={item.caption} />
+                  <figcaption className="practicum-card-body">{item.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          ))}
         </div>
       </Reveal>
     </div>

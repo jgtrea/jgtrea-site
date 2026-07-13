@@ -130,6 +130,10 @@
     color: var(--text);
 }
 
+.practicum-card-title-spaced {
+    margin-top: 16px;
+}
+
 .practicum-card-meta {
     margin: 0;
     font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
@@ -232,6 +236,35 @@
 .practicum-task-status {
     border-top: 1px solid var(--border);
     padding-top: 12px;
+}
+
+.practicum-screens-group {
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.practicum-screens-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.practicum-screen {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.practicum-screen img {
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    display: block;
 }
 
 /* Seminar carousel: certificate thumbnail left, text right */

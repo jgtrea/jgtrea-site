@@ -38,6 +38,7 @@ export const ProjectData: ProjectItem[] = [
   },
   {
     id: 5 ,
+    image: "/assets/project-images/rubiks-cube.png",
     title: "Rubik-s-Cube-Cipher",
     description: "Multi-block permutation cipher that combines the combinatorial state space of the Rubik’s Cube with a cryptographically secure 256-bit random key. ",
     github: "https://github.com/JannersLSR/Rubik-s-Cube-Cipher",
@@ -45,6 +46,7 @@ export const ProjectData: ProjectItem[] = [
   },
   {
     id: 6,
+    image: "/assets/project-images/clock-in.png",
     title: "ClockIn",    
     description: "Attendance monitoring system that tracks employee clock in and out. Using a 3-Factor Verification System (QR Code, WiFi, and BLE Proximity) to secure logging work hours.",    
     stack: ["JavaScript", "Html", "CSS", "QR Code", "Network", "Bluetooth Low Energy"]

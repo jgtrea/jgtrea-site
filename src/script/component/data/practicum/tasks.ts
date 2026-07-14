@@ -5,7 +5,7 @@ export const tasks: PracticumTask[] = [
     id: 1,
     title: 'Voucher Web System',
     subtitle: 'City Education Office - Financial Assistance Program',
-    period: 'May 29, 2026 - June 10, 2026',
+    period: 'May 29, 2026 - July 10, 2026',
     description:
       "The Voucher Web System was developed to manage the City Education Office's process of handling " +
       'student financial assistance, from application to voucher generation and record tracking. It ' +
@@ -154,6 +154,30 @@ export const tasks: PracticumTask[] = [
             src: '/assets/prac-sys/us-log.png',
             caption:
               "My Logs - Shows the user's own account activity, such as logins and voucher changes.",
+          },
+        ],
+      },
+      {
+        group: 'Deployment at CEDO',
+        intro:
+          'On July 10, 2026, the system was deployed at the City Education Office. It was configured ' +
+          'locally through a host machine in their office, and the client was given time to test the ' +
+          'system hands-on.',
+        items: [
+          {
+            src: '/assets/blog/deploy3.jpg',
+            caption:
+              'On-site Testing - Walking the CEDO staff through the system and letting them try it on ' +
+              'their own workstation.',
+          },
+          {
+            src: '/assets/blog/deploy1.jpg',
+            caption:
+              'Turnover - The team with the City Education Officer after presenting the deployed system.',
+          },
+          {
+            src: '/assets/blog/deploy2.jpg',
+            caption: 'The team at the City Education Office to mark the deployment of the system.',
           },
         ],
       },

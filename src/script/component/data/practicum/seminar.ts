@@ -3,6 +3,7 @@ import wddaetCert from './seminar/wddaet-may-21.png';
 import dddnaidnsCert from './seminar/dddnaidns-may-22.png';
 import btbCert from './seminar/btb-june-20.png';
 import btcCert from './seminar/btc-june-27.png';
+import hitcCert from './seminar/hitc-july-4.png';
 
 export type SeminarEntry = {
   title: string;
@@ -72,5 +73,6 @@ export const seminars: SeminarEntry[] = [
     description:
       'Explored how AI is reshaping cloud computing, from intelligent resource management and automation ' +
       'to AI-powered services now built into major cloud platforms.',
+    cert: hitcCert,
   },
 ];

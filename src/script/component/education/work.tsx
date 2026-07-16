@@ -1,13 +1,13 @@
     import { Timeline, Text, List, Group } from "@mantine/core";
-    import { SchoolData } from '../data/school-data';
-    import { GraduationCap } from 'lucide-react';
+    import { WorkData } from '../data/work-data';
+    import { Briefcase } from 'lucide-react';
 
-    const School = () => {
-        const reversedSchoolData = [...SchoolData].reverse();
-        
+    const Work = () => {
+        const reversedWorkData = [...WorkData].reverse();
+
         return (
             <Timeline
-                active={reversedSchoolData.length - 1}
+                active={reversedWorkData.length - 1}
                 lineWidth={2}
                 bulletSize={24}
                 classNames={{
@@ -16,19 +16,19 @@
                     itemBody: 'timeline-body-custom',
                 }}
             >
-                {reversedSchoolData.map((school) => (
+                {reversedWorkData.map((work) => (
                     <Timeline.Item
-                        key={school.id}
-                        bullet={<GraduationCap size={14} />}
+                        key={work.id}
+                        bullet={<Briefcase size={14} />}
                         title={
                             <Group justify="space-between" gap="xs">
-                                <span>{school.school}</span>
-                                <Text size="sm" c="dimmed">{school.year}</Text>
+                                <span>{work.company}</span>
+                                <Text size="sm" c="dimmed">{work.year}</Text>
                             </Group>
                         }
                     >
-                        <Text size="md">{school.title}</Text>
-                        {school.achievements && school.achievements.length > 0 && (
+                        <Text size="md">{work.title}</Text>
+                        {work.tasks && work.tasks.length > 0 && (
                             <List
                                 size="sm"
                                 mt="xs"
@@ -36,8 +36,8 @@
                                 className="timeline-list"
                                 style={{ paddingLeft: '20px' }}
                             >
-                                {school.achievements.map((achievement, index) => (
-                                    <List.Item key={index}>{achievement}</List.Item>
+                                {work.tasks.map((task, index) => (
+                                    <List.Item key={index}>{task}</List.Item>
                                 ))}
                             </List>
                         )}
@@ -47,4 +47,4 @@
         );
     };
 
-    export default School;
+    export default Work;

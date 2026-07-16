@@ -5,10 +5,11 @@ import btbCert from './seminar/btb-june-20.png';
 import btcCert from './seminar/btc-june-27.png';
 import smmpspccCert from './seminar/smmpspcc-june-18.png';
 import hitcCert from './seminar/hitc-july-4.png';
+import afsCert from './seminar/afs-june-21.png';
 
 export type SeminarEntry = {
   title: string;
-  type: 'Internal Seminar' | 'External Seminar';
+  type: 'Internal Seminar' | 'External Seminar' | 'Micro-Credentials';
   speaker?: string;
   date: string;
   description: string;
@@ -66,6 +67,15 @@ export const seminars: SeminarEntry[] = [
       'Framed cybersecurity as a leadership responsibility, exploring how organizations can build a ' +
       'security-first culture while navigating digital transformation.',
     cert: btbCert,
+  },
+  {
+    title: 'Amazon - Full Stack Web Development',
+    type: 'Micro-Credentials',
+    date: 'June 21, 2026',
+    description:
+      'A micro-credential by Amazon on Coursera covering full stack web development, from front-end ' +
+      'interfaces to back-end services.',
+    cert: afsCert,
   },
   {
     title: 'TechTalk: Guiding Young Learners Toward Digital Wellness',

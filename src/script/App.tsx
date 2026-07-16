@@ -5,6 +5,7 @@ import Moon from '../assets/lucide/moon.tsx';
 import Sunn from '../assets/lucide/sun.tsx';
 import Home from './routes/home.tsx';
 import Projects from './routes/projects.tsx';
+import Certificates from './routes/certificates.tsx';
 import Blog from './routes/blog.tsx';
 import BlogPost from './routes/blog-post.tsx';
 import Practicum from './routes/practicum/practicum.tsx';
@@ -14,6 +15,7 @@ import Education from './component/education.tsx';
 import Skills from './component/skills.tsx';
 import Project from './component/project.tsx';
 import BlogPreview from './component/blog-preview.tsx';
+import CertsBadges from './component/certs-badges.tsx';
 import FooterBar from './routes/footer.tsx';
 import ScrollTop from './component/scroll-top.tsx';
 import Reveal from './component/reveal.tsx';
@@ -126,8 +128,8 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
                 {...(modeSwitch ? navLinkFade : navMountFade)}
               >
                 <Link to="/" className="nav-item">Home</Link>
-                <Link to="/#skills" className="nav-item">Skills</Link>
                 <Link to="/projects" className="nav-item">Projects</Link>
+                <Link to="/certificates" className="nav-item">Certificates</Link>
                 <Link to="/blog" className="nav-item">Blog</Link>
               </motion.div>
             )}
@@ -148,6 +150,7 @@ const HomeContent = () => (
     <Reveal delay={0.15}><span id="education"><Education /></span></Reveal>
     <Reveal delay={0.3}><span id="skills"><Skills /></span></Reveal>
     <span id="projects"><Project /></span>
+    <span id="certificates"><CertsBadges /></span>
     <span id="blog"><BlogPreview /></span>
     <Reveal delay={0.75}><FooterBar /></Reveal>
   </>
@@ -218,6 +221,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomeRoute />} />
         <Route path="/projects" element={<main className="layout-root"><div className="content-wrapper"><Projects /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
+        <Route path="/certificates" element={<main className="layout-root"><div className="content-wrapper"><Certificates /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
         <Route path="/blog" element={<main className="layout-root"><div className="content-wrapper"><Blog /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
         <Route path="/blog/:id" element={<main className="layout-root"><div className="content-wrapper"><BlogPost /><Reveal delay={0.5}><FooterBar /></Reveal></div></main>} />
         <Route path="/practicum" element={<PracticumRoute />} />

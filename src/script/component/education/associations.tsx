@@ -17,11 +17,17 @@ import { AssociationsData } from "../data/associations-data";
                 }}
             >
                 {reversedAssociationsData.map((association) => (
-                    <Timeline.Item key={association.id} bullet={<Building2 size={14} />} title={association.title}>
-                        <Group gap="xs" align="center">
-                            <Text size="sm">{association.issuer}</Text>
-                            <Text size="sm"> -  {association.date}</Text>
-                        </Group>
+                    <Timeline.Item
+                        key={association.id}
+                        bullet={<Building2 size={14} />}
+                        title={
+                            <Group justify="space-between" gap="xs">
+                                <span>{association.title}</span>
+                                <Text size="sm" c="dimmed">{association.date}</Text>
+                            </Group>
+                        }
+                    >
+                        <Text size="sm">{association.issuer}</Text>
                         {association.achievements && association.achievements.length > 0 && (
                             <List
                                 size="xs"

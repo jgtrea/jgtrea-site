@@ -18,7 +18,6 @@ const Home = () => {
   return (
     <div className="profile-section" id="home">
       <div className="hero-frame">
-        <div className="hero-hatch" />
         <div className="hero-body">
 
           <div className="hero-top-row">
@@ -29,7 +28,6 @@ const Home = () => {
               <div className="hero-user-text">
                 <h1 className="hero-name">Jan Gabriel Rea</h1>
                 <span className="hero-eyebrow">
-                  <span className="hero-chevron">&gt;</span>
                   <span className="hero-eyebrow-label">Software Developer</span>
                 </span>
               </div>
@@ -57,7 +55,6 @@ const Home = () => {
           </p>
 
         </div>
-        <div className="hero-hatch" />
       </div>
     </div>
   );

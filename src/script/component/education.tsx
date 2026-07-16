@@ -1,14 +1,12 @@
 import { Tabs } from "@mantine/core";
 import Schools from "./education/schools";
-import Certifs from "./education/certifs";
-import Badges from "./education/badges";
 import Associations from "./education/associations";
+import Work from "./education/work";
 
 const eduSections = [
+  { id: "edu-work", label: "Work", Body: Work },
   { id: "edu-education", label: "Education", Body: Schools },
   { id: "edu-associations", label: "Associations", Body: Associations },
-  { id: "edu-certificates", label: "Certificates", Body: Certifs },
-  { id: "edu-badges", label: "Badges", Body: Badges },
 ];
 
 const Education = () => {

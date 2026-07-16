@@ -1,7 +1,7 @@
 :root {
     --bg: lab(2.75381% 0 0);
     --card: lab(7.78201% 0 0);
-    --bg-content: var(--card);
+    --bg-content: var(--bg);
     --text: lab(98.26% 0 0);
     --accent: lab(65% 0 0);
     --border: #333333;
@@ -11,7 +11,7 @@
 [data-theme='light'] {
     --bg: lab(98.26% 0 0);
     --card: lab(100% 0 0);
-    --bg-content: var(--card);
+    --bg-content: var(--bg);
     --text: lab(2.75381% 0 0);
     --accent: lab(40% 0 0);
     --border: #d2d2d7;
@@ -22,6 +22,10 @@ html {
     /* short pages (e.g. blog) have no scrollbar, which shifts centered
        content relative to scrolling pages; keep the gutter reserved */
     scrollbar-gutter: stable;
+    /* macOS rubber-band overscroll paints the root canvas; keep it themed
+       so it never flashes white past the page edges */
+    background-color: var(--bg);
+    transition: background-color 0.2s ease;
 }
 
 .layout-root {
@@ -29,7 +33,10 @@ html {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    min-height: 100vh;
+    /* body is zoomed to 0.8, which shrinks 100vh to 80% of the real
+       viewport and lets the canvas show through below short pages;
+       compensate so the themed background always fills the screen */
+    min-height: calc(100vh / 0.8);
     overflow-x: clip;
     background-color: var(--bg);
     color: var(--text); 
@@ -39,6 +46,7 @@ html {
 body {
     /* dark fallback behind route swaps so no light flash between pages */
     background-color: var(--bg);
+    zoom: 0.8;
 }
 
 .content-wrapper {

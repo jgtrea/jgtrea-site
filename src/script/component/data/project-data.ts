@@ -48,8 +48,8 @@ export const ProjectData: ProjectItem[] = [
     id: 6,
     image: "/assets/project-images/clock-in.png",
     title: "ClockIn",    
-    description: "Attendance monitoring system that tracks employee clock in and out. Using a 3-Factor Verification System (QR Code, WiFi, and BLE Proximity) to secure logging work hours.",    
-    stack: ["JavaScript", "Html", "CSS", "QR Code", "Network", "Bluetooth Low Energy"]
+    description: "Capstone project: an attendance system that records when employees clock in and out. Each entry is checked in three ways (QR code, WiFi, and Bluetooth proximity) to make sure work hours are logged accurately. Built in two parts: a mobile app (Kotlin) and a website (JavaScript, HTML, CSS).",
+    stack: ["Kotlin", "JavaScript", "Html", "CSS"]
   },
   {
     id: 7,

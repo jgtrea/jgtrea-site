@@ -54,7 +54,7 @@
 }
 
 .pill-tab-label {
-    font-family: 'Inter', sans-serif;
+    /* inherit the body font so tabs match .section-pill exactly */
     font-size: 13px;
     font-weight: 500;
 }

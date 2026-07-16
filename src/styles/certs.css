@@ -1,0 +1,212 @@
+.certs-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.certs-page {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.certs-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+@media (max-width: 700px) {
+    .certs-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Certificate-frame card; certificate image shows in the modal */
+.cert-card {
+    display: flex;
+    text-decoration: none;
+    aspect-ratio: 4 / 3;
+    padding: 10px;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Inner frame sitting close to the outer border */
+.cert-card-inner {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px 24px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+.cert-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    color: var(--text);
+}
+
+.cert-card-view {
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--text);
+    opacity: 0.5;
+}
+
+/* Modal */
+.cert-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.cert-modal {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    padding: 36px;
+    box-sizing: border-box;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.cert-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 26px;
+    line-height: 1;
+    color: var(--text);
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.cert-modal-close:hover {
+    opacity: 1;
+}
+
+/* Same layout as the practicum seminar row: image left, text right */
+.cert-modal-row {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    /* uniform modal size regardless of entry content */
+    min-height: 320px;
+}
+
+/* Fixed frame; certificate scales inward to fit (object-fit: contain) */
+.cert-modal-image {
+    flex-shrink: 0;
+    display: block;
+    width: 340px;
+    height: 260px;
+}
+
+.cert-modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.cert-modal-image:hover img {
+    opacity: 0.85;
+    border-color: var(--accent);
+}
+
+.cert-modal-image-placeholder {
+    height: 260px;
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    background-image: radial-gradient(var(--border) 1px, transparent 1px);
+    background-size: 16px 16px;
+}
+
+.cert-modal-text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cert-modal-title {
+    margin: 0;
+    font-size: 22px;
+    color: var(--text);
+}
+
+.cert-modal-meta {
+    margin: 0;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    opacity: 0.6;
+}
+
+.cert-modal-body {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    opacity: 0.85;
+}
+
+.cert-modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.cert-modal-list {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text);
+    opacity: 0.85;
+}
+
+@media (max-width: 700px) {
+    .cert-modal-row {
+        flex-direction: column;
+    }
+
+    .cert-modal-image {
+        width: 100%;
+    }
+}

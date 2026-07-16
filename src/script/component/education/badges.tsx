@@ -18,11 +18,17 @@ const Badges = () => {
             }}
         >
             {reversedBadges.map((badge) => (
-                <Timeline.Item key={badge.id} bullet={<Award size={14} />} title={badge.title}>
-                    <Group gap="xs" align="center">
-                        <Text size="sm">{badge.issuer}</Text>
-                        {badge.date && <Text size="xs" c="dimmed"> - {badge.date}</Text>}
-                    </Group>
+                <Timeline.Item
+                    key={badge.id}
+                    bullet={<Award size={14} />}
+                    title={
+                        <Group justify="space-between" gap="xs">
+                            <span>{badge.title}</span>
+                            {badge.date && <Text size="sm" c="dimmed">{badge.date}</Text>}
+                        </Group>
+                    }
+                >
+                    <Text size="sm">{badge.issuer}</Text>
                     {badge.achievements && badge.achievements.length > 0 && (
                         <List
                             size="xs"

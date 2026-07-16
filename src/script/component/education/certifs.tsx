@@ -17,11 +17,17 @@ const Certifs = () => {
             }}
         >
             {reversedCertifs.map((cert) => (
-                <Timeline.Item key={cert.id} bullet={<Award size={14} />} title={cert.title}>
-                    <Group gap="xs" align="center">
-                        <Text size="sm">{cert.issuer}</Text>
-                        {cert.date && <Text size="sm"> - {cert.date}</Text>}
-                    </Group>
+                <Timeline.Item
+                    key={cert.id}
+                    bullet={<Award size={14} />}
+                    title={
+                        <Group justify="space-between" gap="xs">
+                            <span>{cert.title}</span>
+                            {cert.date && <Text size="sm" c="dimmed">{cert.date}</Text>}
+                        </Group>
+                    }
+                >
+                    <Text size="sm">{cert.issuer}</Text>
                     {cert.achievements && cert.achievements.length > 0 && (
                         <List
                             size="xs"

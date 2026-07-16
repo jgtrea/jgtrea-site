@@ -19,7 +19,7 @@ export type SeminarEntry = {
 export const seminars: SeminarEntry[] = [
   {
     title: 'Digital Transformation and Smart Information Systems',
-    type: 'Internal Seminar',
+    type: 'External Seminar',
     speaker: 'Ethel Grace Verana',
     date: 'May 20, 2026',
     description:
@@ -29,7 +29,7 @@ export const seminars: SeminarEntry[] = [
   },
   {
     title: 'Web Development, Data Analytics, and Emerging Technologies',
-    type: 'Internal Seminar',
+    type: 'External Seminar',
     speaker: 'Kevin Yu',
     date: 'May 21, 2026',
     description:
@@ -39,7 +39,7 @@ export const seminars: SeminarEntry[] = [
   },
   {
     title: 'Decode the Data, Defend the Network: An Introduction to Data Analytics and Network Security',
-    type: 'Internal Seminar',
+    type: 'External Seminar',
     speaker: 'Ethel Grace Verana',
     date: 'May 22, 2026',
     description:
@@ -60,7 +60,7 @@ export const seminars: SeminarEntry[] = [
   },
   {
     title: 'Beyond the Breach: Leadership and Cybersecurity in the Age of Digital Transformation',
-    type: 'External Seminar',
+    type: 'Internal Seminar',
     speaker: 'Dr. Elizade Duran',
     date: 'June 20, 2026',
     description:
@@ -87,7 +87,7 @@ export const seminars: SeminarEntry[] = [
   },
   {
     title: 'Beyond the Code: Next-Gen Skills for the Cloud-Native Era',
-    type: 'External Seminar',
+    type: 'Internal Seminar',
     speaker: 'Mr. Mark Anthony Hernandez',
     date: 'June 27, 2026',
     description:

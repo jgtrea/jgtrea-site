@@ -34,9 +34,27 @@ const BlogPost = () => {
             </Reveal>
             <Reveal delay={0.15}>
                 <div className="blog-post-content">
-                    {post.content.split('\n').map((paragraph, index) => (
-                        <p key={index}>{paragraph}</p>
-                    ))}
+                    {post.content.split('\n').map((paragraph, index) => {
+                        // "img:src|caption" lines render as figures
+                        // "## Heading" lines render as section headings
+                        if (paragraph.startsWith('## ')) {
+                            return (
+                                <h2 key={index} className="blog-post-heading">
+                                    {paragraph.slice(3)}
+                                </h2>
+                            );
+                        }
+                        if (paragraph.startsWith('img:')) {
+                            const [src, caption] = paragraph.slice(4).split('|');
+                            return (
+                                <figure key={index} className="blog-post-figure">
+                                    <img src={src} alt={caption || 'blog image'} />
+                                    {caption && <figcaption>{caption}</figcaption>}
+                                </figure>
+                            );
+                        }
+                        return <p key={index}>{paragraph}</p>;
+                    })}
                 </div>
             </Reveal>
         </div>

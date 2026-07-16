@@ -5,7 +5,9 @@ import SectionHeader from './section-header';
 import '../../styles/blog.css';
 
 const BlogPreview = () => {
-    const latestPosts = [...BlogData].reverse().slice(0, 2);
+    const latestPosts = [...BlogData]
+        .sort((a, b) => b.date.localeCompare(a.date))
+        .slice(0, 2);
 
     return (
         <div className="blog-container">

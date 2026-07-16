@@ -2,7 +2,7 @@ import type { BlogPost } from './types';
 
 export const blog2: BlogPost = {
   id: 2,
-  title: "My First Steps into Backend Development: Learning CodeIgniter 4",
+  title: "Learning CodeIgniter 4",
   date: "2026/04/29",
   readTime: 10,
   content: `After applying for a position with the City Government of Biñan, I was accepted and given the opportunity to learn and apply my skills in a real working environment. My first task was to familiarize myself with the project's development environment by configuring XAMPP and setting up a MySQL database. From there, my responsibilities grew steadily: I learned the routing mechanics of CodeIgniter 4, developed a functional backend login API, collaborated with the design team to help formulate the system's core logic and structural architecture, mapped out project workflows visually using Data Flow Diagrams, and began initial development on the backend interface responsible for handling Excel file imports.

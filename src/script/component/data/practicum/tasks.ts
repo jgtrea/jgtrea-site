@@ -190,7 +190,7 @@ export const tasks: PracticumTask[] = [
     period: 'June 13, 2026 - Present',
     description:
       'A ticketing system assigned as the next task after the Voucher Web System, intended to track and ' +
-      'manage requests and reported issues. Development is in its early stages.',
+      'manage requests and reported issues.',
     stack: [],
     work: [],
     images: [],

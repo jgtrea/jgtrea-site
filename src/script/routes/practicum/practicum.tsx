@@ -45,17 +45,21 @@ const Overview = () => (
 );
 
 const Background = () => (
-  <div className="practicum-card">
-    <h3 className="practicum-card-title">{companyBackground.name}</h3>
-    <p className="practicum-card-meta">
-      {companyBackground.role}
-      {companyBackground.period && <> &middot; {companyBackground.period}</>}
-      {companyBackground.location && <> &middot; {companyBackground.location}</>}
-    </p>
-    <p className="practicum-card-body">{companyBackground.description}</p>
-    <h3 className="practicum-card-title practicum-card-title-spaced">{companyBackground.icto.name}</h3>
-    <p className="practicum-card-body">{companyBackground.icto.description}</p>
-  </div>
+  <>
+    <div className="practicum-card">
+      <h3 className="practicum-card-title">{companyBackground.name}</h3>
+      <p className="practicum-card-meta">
+        {companyBackground.role}
+        {companyBackground.period && <> &middot; {companyBackground.period}</>}
+        {companyBackground.location && <> &middot; {companyBackground.location}</>}
+      </p>
+      <p className="practicum-card-body">{companyBackground.description}</p>
+    </div>
+    <div className="practicum-card">
+      <h3 className="practicum-card-title">{companyBackground.icto.name}</h3>
+      <p className="practicum-card-body">{companyBackground.icto.description}</p>
+    </div>
+  </>
 );
 
 const Tasks = () => (

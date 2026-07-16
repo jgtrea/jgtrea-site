@@ -13,7 +13,7 @@ export const readMinutes = (post: BlogPost) =>
 
 const Blog = () => {
     const [view, setView] = useState<'rows' | 'grid'>('rows');
-    const latestPosts = [...BlogData].reverse();
+    const latestPosts = [...BlogData].sort((a, b) => b.date.localeCompare(a.date));
 
     return (
         <div className="blog-container">

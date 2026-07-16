@@ -2,6 +2,7 @@ import { blog1 } from './blog-1';
 import { blog2 } from './blog-2';
 import { blog3 } from './blog-3';
 import { blog4 } from './blog-4';
+import { blog5 } from './blog-5';
 import type { BlogPost } from './types';
 
 export type { BlogPost } from './types';
@@ -14,4 +15,5 @@ export const BlogData = [
   blog2,
   blog3,
   blog4,
+  blog5,
 ];

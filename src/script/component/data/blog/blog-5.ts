@@ -22,7 +22,7 @@ The mobile application, built with Kotlin and Jetpack Compose, is the teacher's 
 img:/assets/blog/clockin-mobile-home.jpg|CLOCK IN mobile home interface, showing the current class, live beacon status, and notifications
 img:/assets/blog/clockin-mobile-qr.jpg|QR scanner interface used to finalize the clock-in after proximity verification
 ## The Administrative Side
-The web dashboard gives administrators a live, centralized view of every attendance record. They can monitor real-time logs, review tardiness and absence reports, export records as PDF or TXT, and manage teacher accounts, with role-based access control keeping administrative functions restricted to authorized personnel. Teachers get web accounts too; this is where online and modular class sessions are verified through the image submission module.
+The web dashboard gives administrators a live, centralized view of every attendance record. They can monitor real-time logs, review tardiness and absence reports, generate reports, and manage teacher accounts, with role-based access control keeping administrative functions restricted to authorized personnel. Teachers get web accounts too; this is where online and modular class sessions are verified through the image submission module.
 img:/assets/blog/clockin-web-home.png|Web section overview showing which teachers are in which classroom in real time
 img:/assets/blog/clockin-web-dashboard.png|Administrative dashboard for attendance logs, reports, and account management
 ## Under the Hood

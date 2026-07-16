@@ -3,6 +3,8 @@ import wddaetCert from './seminar/wddaet-may-21.png';
 import dddnaidnsCert from './seminar/dddnaidns-may-22.png';
 import btbCert from './seminar/btb-june-20.png';
 import btcCert from './seminar/btc-june-27.png';
+import smmpspccCert from './seminar/smmpspcc-june-18.png';
+import hitcCert from './seminar/hitc-july-4.png';
 
 export type SeminarEntry = {
   title: string;
@@ -45,6 +47,17 @@ export const seminars: SeminarEntry[] = [
     cert: dddnaidnsCert,
   },
   {
+    title:
+      'Social Media Marketing, Product and Smartphone Photography, and Cyber Hygiene Training for the LGBTQIA+ Community',
+    type: 'External Seminar',
+    date: 'June 18, 2026',
+    description:
+      'A training held in celebration of 2026 Pride Month and National ICT Month, covering general cyber ' +
+      'hygiene with an introduction to online safety, privacy protection, and digital security, along with ' +
+      'hands-on training in Canva for social media marketing and product and smartphone photography.',
+    cert: smmpspccCert,
+  },
+  {
     title: 'Beyond the Breach: Leadership and Cybersecurity in the Age of Digital Transformation',
     type: 'External Seminar',
     speaker: 'Dr. Elizade Duran',
@@ -53,6 +66,14 @@ export const seminars: SeminarEntry[] = [
       'Framed cybersecurity as a leadership responsibility, exploring how organizations can build a ' +
       'security-first culture while navigating digital transformation.',
     cert: btbCert,
+  },
+  {
+    title: 'TechTalk: Guiding Young Learners Toward Digital Wellness',
+    type: 'External Seminar',
+    date: 'June 25, 2026',
+    description:
+      'Discussed the safe use of technology for young learners, covering how technology is used today, ' +
+      'online safety, and how AI and LLMs can be applied usefully and safely with human guidance and monitoring.',
   },
   {
     title: 'Beyond the Code: Next-Gen Skills for the Cloud-Native Era',
@@ -72,5 +93,6 @@ export const seminars: SeminarEntry[] = [
     description:
       'Explored how AI is reshaping cloud computing, from intelligent resource management and automation ' +
       'to AI-powered services now built into major cloud platforms.',
+    cert: hitcCert,
   },
 ];

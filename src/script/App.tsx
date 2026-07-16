@@ -115,7 +115,16 @@ const Navbar: React.FC<{ theme: string; toggleTheme: () => void }> = ({ theme, t
                     key={s.id}
                     href={`#${s.id}`}
                     className="nav-item"
-                    onClick={(e) => { e.preventDefault(); scrollToSection(s.id); }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      // From a practicum subpage (synthesis, task view) the
+                      // sections don't exist; go back to /practicum first
+                      if (location.pathname === '/practicum') {
+                        scrollToSection(s.id);
+                      } else {
+                        navigate(`/practicum#${s.id}`);
+                      }
+                    }}
                   >
                     {s.label}
                   </a>
@@ -194,6 +203,14 @@ const PracticumContent = () => (
 
 const PracticumRoute = () => {
   const modeSwitch = useModeSwitch();
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) return;
+    const t = setTimeout(() => scrollToSection(hash.slice(1)), 100);
+    return () => clearTimeout(t);
+  }, [hash]);
+
   return (
     <main className="layout-root">
       <div className="content-wrapper">

@@ -33,10 +33,10 @@ html {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    /* body is zoomed to 0.8, which shrinks 100vh to 80% of the real
-       viewport and lets the canvas show through below short pages;
-       compensate so the themed background always fills the screen */
-    min-height: calc(100vh / 0.8);
+    /* body is zoomed (see body rule), which shrinks 100vh and lets the
+       canvas show through below short pages; compensate so the themed
+       background always fills the screen */
+    min-height: calc(100vh / 0.85);
     overflow-x: clip;
     background-color: var(--bg);
     color: var(--text); 
@@ -46,7 +46,7 @@ html {
 body {
     /* dark fallback behind route swaps so no light flash between pages */
     background-color: var(--bg);
-    zoom: 0.8;
+    zoom: 0.85;
 }
 
 .content-wrapper {
